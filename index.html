@@ -1,98 +1,110 @@
 <html>
 <head>
-<title> GDSC login </title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-button.x{position:relative;
-        left:15%;
-        top: 70%;
-        border:1px solid black;
-        border-radius: 15px;
-        padding:10px;
-        width:70%;}
-button.signin{position:relative;
-              left:6%;
-              border:1px solid black;
-              border-radius:15px;
-              padding:12px;
-              width:90%;}
-button.nxt{position:relative;
-           left: 35%;
-           border-radius:15px;
-           padding:8px;
-           width:25%;}
-button.nxt1{position:relative;
-           left: 20%;
-           border-radius:15px;
-           padding:8px;
-           width:25%;}
-button.prev{position:relative;
-           left: 28%;
-           border-radius:15px;
-           padding:8px;
-           width:25%;}
-#a{position:absolute;
-      top:20%;
-      left:40%;
-      border:1px solid black;
-      border-radius: 15px;
-      padding:5px;
-      transition: 0.1s;
-      }
-div.b{position:relative;
-       left:34%;}
-div.c{position:relative;
-       left:45%;
-       font-size: 150%;}
-div.d{position:relative;
-      left:20%;
-      font-size: 120%;}
-#b{position:absolute;
-   top:20%;
-   left:60%;
-   border:1px solid black;
-   border-radius: 15px;
-   padding:10px;
-   visibility:hidden;
-   transition: .5s;
-      }
-#c{position:absolute;
-   top:20%;
-   left:60%;
-   border:1px solid black;
-   border-radius: 15px;
-   padding:10px;
-   visibility:hidden;
-   transition: .5s;
-      }
-#d{position:absolute;
-   top:20%;
-   left:60%;
-   border:1px solid black;
-   border-radius: 15px;
-   padding:10px;
-   visibility:hidden;
-   transition: .5s;
-      }
-.d{-webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;	
-   width:100%;
-   font-size:180%;}
-.e{-webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;	
-    width:100%;
-    font-size:130%;}
-
-@media only screen and (max-width:1500px){
-   button.x{width:90%;
-            left:6%;}}
-@media only screen and (max-width:650px){
-   .d, .e{font-size:100%;}} 
-</style>
+<title>Login </title>
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   
+   <!-- Fontawesome Library -->
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+   <!-- Sarthak's Stepper From -->
+   <section>
+      <form action="" method="post">
+         <div class="box">
+            <h2>Step 1</h2>
+               <div class="inputBox">
+                  <input type="text" name="first_name" required>
+                  <label>First Name*</label>
+               </div>
+               <div class="inputBox">
+                  <input type="text" name="last_name" required>
+                  <label>Last Name*</label>
+               </div>
+            <div class="buttonSection" id="firstButtonSection">
+               <button type="button" class="nextButton">Next</button>
+            </div>
+         </div>
+         <div class="box">
+            <h2>Step 2</h2>
+               <div class="inputBox">
+                  <input type="date" name="dob" required>
+                  <label>Date of Birth (dd/mm/yyyy)*</label>
+               </div>
+               <div class="inputBox">
+                  <input type="text" name="father_name" required>
+                  <label>Father's Name*</label>
+               </div>
+            <div class="buttonSection">
+               <button type="button" class="previousButton">Previous</button>
+               <button type="button" class="nextButton">Next</button>
+            </div>
+         </div>
+         <div class="box">
+            <h2>Step 3</h2>
+               <div class="inputBox">
+                  <input type="text" name="city" required>
+                  <label>City*</label>
+               </div>
+               <div class="inputBox">
+                  <input type="text" name="country" required>
+                  <label>Country*</label>
+               </div>
+            <div class="buttonSection">
+               <button type="button" class="previousButton">Previous</button>
+               <button type="button" class="nextButton">Next</button>
+            </div>
+         </div>
+         <div class="box">
+            <h2>Step 3</h2>
+               <div class="inputBox">
+                  <input type="text" name="lang" required>
+                  <label>Preferred Language*</label>
+               </div>
+               <div class="inputBox">
+                  <input type="tel" name="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required>
+                  <label>Mobile Number* (with country code)</label>
+               </div>
+            <div class="buttonSection">
+               <button type="button" class="previousButton">Previous</button>
+               <button type="button" class="nextButton">Next</button>
+            </div>
+         </div>
+         <div class="box">
+            <h2>Step 3</h2>
+               <div class="inputBox">
+                  <input type="text" name="username" required>
+                  <label>Choose a Username*</label>
+               </div>
+               <div class="inputBox">
+                  <input type="password" name="password" required>
+                  <label>Choose a Password*</label>
+               </div>
+               <div class="inputBox">
+                  <input type="password" name="password" required>
+                  <label>Confirm Password</label>
+               </div>
+            <div class="buttonSection">
+               <button type="button" class="previousButton">Previous</button>
+               <button type="button" class="nextButton">Next</button>
+            </div>
+         </div>
+         <div class="box">
+            <h2>Are you sure you want to Submit?</h2>
+            <div class="buttonSection">
+               <button type="button" class="previousButton">Go Back</button>
+               <button type="button" class="nextButton" id="submitButton">Submit</button>
+            </div>
+         </div>
+         <div class="box">
+            <h2>Success <i class="fas fa-check-circle"></i></h2>
+         </div>
+      </form>
+      <script type="text/javascript" src="Stepper_Form.js"></script>
+   </section>
+
+
+<!--    
 <div id="a">
  <div class="b">
   <h2 style="font-size:135%;">Sign In</h2>
@@ -208,7 +220,9 @@ document.getElementById("d").style.visibility="hidden"
 document.getElementById("c").style.visibility="visible"
 document.getElementById("c").style.left="36%"
 }
-</script>
+</script> -->
+
+<script type="text/javascript" src="Stepper_Form.js"></script>
 </body>
 </html>
 
