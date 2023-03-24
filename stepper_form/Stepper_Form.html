@@ -10,66 +10,62 @@
 	<link rel="stylesheet" type="text/css" href="Stepper_Form.css">
 </head>
 <body>
-	<div class="box">
-		<h2>Step 1</h2>
-		<form>
-			<div class="inputBox">
-				<input type="text" name="" required>
-				<label>First Name*</label>
+	<form action="">
+		<div class="box">
+			<h2>Step 1</h2>
+				<div class="inputBox">
+					<input type="text" name="" required>
+					<label>First Name*</label>
+				</div>
+				<div class="inputBox">
+					<input type="text" name="" required>
+					<label>Last Name*</label>
+				</div>
+			<div class="buttonSection" id="firstButtonSection">
+				<button class="nextButton">Next</button>
 			</div>
-			<div class="inputBox">
-				<input type="text" name="" required>
-				<label>Last Name*</label>
-			</div>
-		</form>
-		<div class="buttonSection" id="firstButtonSection">
-			<button class="nextButton">Next</button>
 		</div>
-	</div>
-	<div class="box">
-		<h2>Step 2</h2>
-		<form>
-			<div class="inputBox">
-				<input type="text" name="" required>
-				<label>Date of Birth (dd/mm/yyyy)*</label>
+		<div class="box">
+			<h2>Step 2</h2>
+				<div class="inputBox">
+					<input type="text" name="" required>
+					<label>Date of Birth (dd/mm/yyyy)*</label>
+				</div>
+				<div class="inputBox">
+					<input type="text" name="" required>
+					<label>Father's Name*</label>
+				</div>
+			<div class="buttonSection">
+				<button class="previousButton">Previous</button>
+				<button class="nextButton">Next</button>
 			</div>
-			<div class="inputBox">
-				<input type="text" name="" required>
-				<label>Father's Name*</label>
-			</div>
-		</form>
-		<div class="buttonSection">
-			<button class="previousButton">Previous</button>
-			<button class="nextButton">Next</button>
 		</div>
-	</div>
-	<div class="box">
-		<h2>Step 3</h2>
-		<form>
-			<div class="inputBox">
-				<input type="number" name="" required>
-				<label>High School Marks (in %)*</label>
+		<div class="box">
+			<h2>Step 3</h2>
+				<div class="inputBox">
+					<input type="number" name="" required>
+					<label>High School Marks (in %)*</label>
+				</div>
+				<div class="inputBox">
+					<input type="number" name="" required>
+					<label>How many kids do you have?*</label>
+				</div>
+			<div class="buttonSection">
+				<button class="previousButton">Previous</button>
+				<button class="nextButton">Next</button>
 			</div>
-			<div class="inputBox">
-				<input type="number" name="" required>
-				<label>How many kids do you have?*</label>
+		</div>
+		<div class="box">
+			<h2>Are you sure you want to Submit?</h2>
+			<div class="buttonSection">
+				<button class="previousButton">Go Back</button>
+				<button class="nextButton" id="submitButton">Submit</button>
 			</div>
-		</form>
-		<div class="buttonSection">
-			<button class="previousButton">Previous</button>
-			<button class="nextButton">Next</button>
 		</div>
-	</div>
-	<div class="box">
-		<h2>Are you sure you want to Submit?</h2>
-		<div class="buttonSection">
-			<button class="previousButton">Go Back</button>
-			<button class="nextButton" id="submitButton">Submit</button>
+		<div class="box">
+			<h2>Success <i class="fas fa-check-circle"></i></h2>
 		</div>
-	</div>
-	<div class="box">
-		<h2>Success <i class="fas fa-check-circle"></i></h2>
-	</div>
+	</form>
 	<script type="text/javascript" src="Stepper_Form.js"></script>
 </body>
 </html>
