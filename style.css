@@ -50,7 +50,7 @@ body{
 	position: relative;
 }
 
-.box .inputBox input{
+.box .inputBox input, .box .inputBox select{
 	width: 100%;
 	padding: 10px 0;
 	font-size: 16px;
@@ -62,12 +62,15 @@ body{
 	background: transparent;
 	transition: .5s;
 }
-.box .inputBox input:focus{
+select option{
+	color: black;
+}
+.box .inputBox input:focus, .box .inputBox select:focus{
 	animation: expand .8s;
 	width: 100%;
 	border-bottom: 1px solid var(--theme-color);
 }
-.box .inputBox input:valid{
+.box .inputBox input:valid, .box .inputBox select:valid{
 	width: 100%;
 	border-bottom: 1px solid var(--theme-color);
 }
@@ -112,7 +115,9 @@ body{
 	transition: .5s;
 }
 .box .inputBox input:focus ~ label,
-.box .inputBox input:valid ~ label{
+.box .inputBox input:valid ~ label,
+.box .inputBox select:focus ~ label,
+.box .inputBox select:valid ~ label{
 	top: -18px;
 	left: 0;
 	color: var(--theme-color);
