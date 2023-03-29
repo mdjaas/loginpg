@@ -20,7 +20,7 @@ function init(index){
 				box[index+1].style.display=  "grid";
 			}, 1000);
 		}
-		else if(index === 3){
+		else if(index === next.length-1){
 			box[index].style.animation = "fadeOut 1s";
 			setTimeout(function(){
 				box[index].style.display=  "none";
@@ -29,6 +29,9 @@ function init(index){
 			setTimeout(function(){
 				box[index+1].style.display=  "grid";
 			}, 1000);
+
+			// Submitting form
+			//document.querySelector("form").submit();
 		}
 		isInputValid = [];
 	});

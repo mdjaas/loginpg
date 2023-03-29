@@ -1,0 +1,48 @@
+.content{
+	margin: 100px 0 100px 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    border-radius: 15px;
+}
+
+.content:nth-child(odd) div .post-img{
+    border-radius: 15px 0 0 15px;
+}
+.content:nth-child(even) div .post-img{
+    border-radius: 0 15px 15px 0;
+}
+
+.blurb{
+    padding-left: 5em;
+}
+
+.blurb h2{
+	font-weight: 600;
+	font-size: 1.5rem;
+    color: white;
+    display: inline;
+}
+
+.blurb span{
+	font-weight: 100;
+	font-size: 112.5%;
+	line-height: 2;
+    text-align: justify;
+    color: #fff;
+}
+
+.blurb > .post-icon{
+    color: white;
+    cursor: pointer;
+}
+
+@media only screen and (max-width:766px) {
+    .content:nth-child(odd) div .post-img{
+        border-radius: 15px;
+    }
+    .content:nth-child(even) div .post-img{
+        border-radius: 15px;
+    }
+    .blurb{
+        padding-left: 1em;
+    }
+}
