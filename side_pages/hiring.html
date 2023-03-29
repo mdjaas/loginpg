@@ -1,0 +1,119 @@
+<html>
+<head>
+<title> Hiring Page</title>
+<meta name="viewport" content="initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+div.hire{position:fixed;
+         left:30%;
+         border:1px solid black;
+         border-radius:15px;
+         padding:8px;
+         width:40%;
+         }
+   .x{font-size:20px;}
+   .y{position:relative;
+      top:0.1%;
+      left:18%;
+      font-size:20px;
+      }
+   .locate{width:140%;
+           font-size:20px;}
+   .hire{position:relative;
+         left:40%;
+         width:20%;
+         font-size:20px;}
+div.confirm{position:absolute;
+            top:1%;
+            height:1%;
+            width:100%;
+            background-color:black;
+            z-index:9;
+            opacity:0.93;
+            transition:0.2s;
+            visibility:hidden;}
+    .done{position:absolute;
+          top:99%;
+          left:50%;
+          font-size:50px;
+          color:green;
+          transition-delay:0.8s;
+          transition:0.8s;
+          border:1px solid green;
+          border-radius:50%;
+          padding:8px;
+          visibility:hidden;}
+    .don{position:absolute;
+         top:35%;
+         left:49%;
+         font-size:50px;
+         transition:0.1s;
+         transition-delay:1s;
+         visibility:hidden;
+         color:green;}
+    .await{position:relative;
+           left:1%;
+           top:45%;
+           font-size:20px;
+           color:blue;}
+</style>
+</head>
+<body>
+<center>
+   <h1>Hiring Page</h1>
+</center>
+<div class="hire">
+  <table>
+    <tr>
+      <td class="x">Name of the hirer</td>
+      <td><input class="y" type="text"></td>
+    </tr>
+    <tr></tr>
+    <tr>
+      <td class="x">Type of work</td>
+      <td><input class="y" type="text"></td>
+    </tr>
+    <tr></tr>
+    <tr>
+      <td class="x">Description</td>
+      <td><textarea class="y" rows="4" cols="21"></textarea></td>
+    </tr>
+    <tr></tr>
+    <tr>
+      <td class="x">Upload Images Of work</td>
+      <td><input class="y" type="file" accept="image/*" multiple></td>
+    </tr>
+    <tr></tr>
+    <tr>
+      <td><button class="locate">Locate my address</button></td>
+    </tr>
+    <tr></tr>
+    <tr>
+      <td class="x">Choose Your Date and Time</td>
+      <td><input class="y" type="date"></td>
+    </tr>
+  </table>
+  <button onclick="confirm()" class="hire">Hire Now</button>
+</div>
+<div id="conf" class="confirm">
+   <div id="done" class="done">
+     <i id="done" class="fa fa-check"></i>
+   </div>
+   <div id="don" class="don">
+     <p>Done</p>
+     <a class="await" href="">Check Status</a> 
+   </div>
+   
+</div>
+
+<script>
+function confirm(){
+   document.getElementById("conf").style.visibility="visible"
+   document.getElementById("conf").style.height="100%"
+   document.getElementById("done").style.visibility="visible"
+   document.getElementById("done").style.top="30%"
+   document.getElementById("don").style.visibility="visible"
+}
+</script>
+</body>
+</html>

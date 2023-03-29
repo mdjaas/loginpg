@@ -1,0 +1,401 @@
+<html>
+<head>
+<title> Find Workers </title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body{overflow-y:scroll;
+     background-color:white;}
+div.x{position:absolute;
+      left:1%;
+      width:100%;}
+   .x{position:relative;
+      left:1%;
+      border:none;
+     -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+     box-sizing: border-box;	
+     font-size:115%;}
+
+   .y{position:relative;
+     left:2%;
+     border:none;
+     -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+     box-sizing: border-box;	
+     font-size:115%;}
+div.z{position:absolute;
+      left:28%;
+      top:10%;
+      width:40%;}
+   .z{position:relative;
+     -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+     box-sizing: border-box;
+     width:100%;	
+     font-size:130%;}
+   .a{position:absolute;
+      left:135%;
+      top:0.1%;
+      width:15%;
+      height:31%;
+      visibility:hidden;}
+   .b{position:relative;
+      left:0.1%;
+      width:48%;
+      font-size:130%;
+      visibility:visible;}
+   .c{position:relative;
+      left:2.3%;
+      width:48%;
+      font-size:130%;
+      visibility:visible;}
+    .d{position:absolute;
+      left:102%;
+      top:64%;
+      width:15%;
+      height:37%;
+      visibility:visible;}
+div.profile{position:absolute;
+            left:28%;
+            top:30%;
+            width:40%;
+           }
+    div.pr{position:absolute;
+           top:51.5%;
+           left:1%;}
+    .rated{color:orange;}
+    .star{position:absolute;
+          left:40%;}
+
+div.menus{position:fixed;
+          top:10%;}
+    div.menuico{cursor:pointer;
+                width: 35px;
+                height: 5px;
+                background-color: black;
+                margin: 6px 0;
+                visibility:hidden;}
+    #menu{position:fixed;
+          z-index:9;
+          width:0.1%;
+          height:100%;
+          background-color:white;
+          transition:0.1s;
+          visibility:hidden;}
+    .home{position:relative;
+                top:20%;
+                width:100%;
+                height:10%;
+                border:none;
+                background-color:white;
+                display:block;}
+    button.contact{position:relative;
+                   top:20%;
+                   width:100%;
+                   height:10%;
+                   border-top:none;
+                   border-left:none;
+                   border-right:none;
+                   border-bottom:1px solid grey;
+                   background-color:white;
+                   display:block;}
+    button.signin{position:relative;
+                   top:20%;
+                   width:100%;
+                   height:10%;
+                   border-top:1px solid grey;
+                   border-left:none;
+                   border-right:none;
+                   border-bottom:none;
+                   background-color:white;
+                   display:block;}
+    .close{cursor:pointer;
+           position:fixed;
+           top:0.1%;
+           left:1%;
+           font-size:60px;}
+           
+@media only screen and (max-width:719px){
+   div.x{width:100%;}
+   .x{left:1%;
+      font-size:100%;
+      visibility:hidden;}
+   .y{left:2%;
+      font-size:100%;
+      visibility:hidden;}
+   .z{left:30%;
+      font-size:118%;}
+   .b,.c,.d{visibility:hidden;}
+   div.menuico{visibility:visible;}}
+@media only screen and (max-width:1200px) and (min-width:720px){
+   div.x{width:50%;}
+   .x{left:64%;}
+   .y{left:69%;}
+   .z{left:13%;
+      width:120%;}
+   .a{visibility:visible;}
+   .b,.c,.d{visibility:hidden;}}  
+
+</style>
+</head>
+<body>
+<div id="menudiv" onclick="menu()" class="menus">
+  <div class="menuico"></div>
+  <div class="menuico"></div>
+  <div class="menuico"></div>
+</div>
+<div id="menu">
+  <span onclick="clos()" class="close">&times;</span>
+  <button class="home">Home</button>
+  <button class="home">Find Workers</button>
+  <button class="home">Find Jobs</button>
+  <button class="contact">Contact Us</button>
+  <select class="home">
+     <option value=" " disabled selected>Language</option>
+     <option value="English">English</option>
+     <option value="Hindi">Hindi</option>
+  </select>
+  <select class="home">
+     <option value="  " disabled selected>Country</option>
+     <option value="India">India</option>
+     <option value="Syria">Syria</option>
+  </select>	
+  <button class="signin">Sign In / Sign Up</button>
+</div>
+<div id="maincont">
+<div class="x">
+  <select class="x" id="place">
+     <option value=" " disabled selected>Country  </option>
+     <option value="India">India</option>
+     <option value="Syria">Syria</option>
+     <option value="South Africa">South Africa</option>
+  </select>
+  <select class="y" id="lang">
+     <option value=" " disabled selected>Language</option>
+     <option value="English">English</option>
+     <option value="Hindi">Hindi</option>
+     <option value="Tamil">Tamil</option>
+     <option value="Malayalam">Malayalam</option>
+  </select>
+</div>
+<div class="z">
+  <input class="z" type="text" id="searchw" placeholder="Search for Workers">
+  <button class="a">Fil</button>
+  <button class="d">Fil</button>
+  <br><br>
+  <select class="b" id="state">
+    <option value=" " disabled selected>State</option>
+  </select>
+  <select class="c" id="neighbour">
+    <option value=" " disabled selected>Neighbourhood</option>
+  </select>
+</div>
+
+<div id="profile" class="profile">
+   <button onclick="prof()">Click</button>
+   <div id="profp" class="pr">
+   </div>
+   <div id="star" class="star">
+   </div>
+</div>
+</div>
+<script>
+function menu(){
+  document.body.style.backgroundColor="grey"
+  document.getElementById("menu").style.visibility="visible"
+  document.getElementById("menu").style.width="30%"
+  document.getElementById("searchw").disabled=true
+}
+function clos(){
+  document.getElementById("menu").style.width=".5%"
+  document.getElementById("menu").style.visibility="hidden"
+  document.body.style.backgroundColor="white"
+  document.getElementById("searchw").disabled=false
+}
+
+count=1
+trcount=1
+function prof(){
+  tabid="workers"+count
+  trid="pri"+trcount
+  a=document.createElement("TABLE")
+  a.id="workers"+count
+  count+=1
+  a.style.border="1px solid black"
+  document.getElementById("profile").appendChild(a)
+  b=document.createElement("tr")
+  b.id="pri"+trcount
+  document.getElementById(tabid).appendChild(b)
+  c=document.createElement("td")
+  c.style.border="1px solid black"
+  d=document.createElement("IMG")
+  d.src="https://www.rd.com/wp-content/uploads/2022/01/GettyImages-174655938.jpg"
+  d.style.width="558px"
+  d.style.height="250px"
+  c.appendChild(d)
+  b.appendChild(c)
+  trcount+=1
+
+  e=document.createElement("table")
+  e.id="pp"+count
+  tabid1="pp"+count
+  count+=1
+  e.style.border="1px solid black"
+  e.style.borderRadius="50%"
+  document.getElementById("profile").appendChild(e)
+
+  /*ea=document.createElement("div")
+  ea.id="prtr"+trcount
+  document.getElementById(tabid1).appendChild(ea)*/
+
+  f=document.createElement("tr")
+  f.id="profi"+trcount
+  document.getElementById(tabid1).appendChild(f)
+  g=document.createElement("td")
+  h=document.createElement("img")
+  h.src="https://www.bugatti.com/fileadmin/_processed_/e/e/csm_og-image_506cf6a92e.jpg"
+  h.style.width="75px"
+  h.style.height="75px"
+  h.style.borderRadius="50%"
+  g.appendChild(h)
+  f.appendChild(g)
+  i=document.createElement("tr")
+  i.id="hire"+trcount
+  document.getElementById(tabid).appendChild(i)
+  j=document.createElement("td")
+  k=document.createTextNode("  ")
+  j.appendChild(k)
+  i.appendChild(k)
+  l=document.createElement("td")                 //appears if the person is fully occupied till a particular date
+  l.id="hiring"
+  l.style.position="relative"
+  l.style.left="20%"
+  m=document.createElement("p")
+  m.innerText="Hired till"
+  m.style.color="red"
+  m.style.visibility="hidden"
+  l.appendChild(m)
+  i.appendChild(l)
+  n=document.createElement("tr")
+  n.id="nature"+trcount
+  document.getElementById(tabid).appendChild(n)
+  o=document.createElement("td")
+  p=document.createElement("p")
+  p.innerText="Plumber"
+  p.style.fontSize="23px"
+  o.appendChild(p)
+  n.appendChild(o)
+  qa=document.createElement("div")
+  document.getElementById("profile").appendChild(qa)
+  qa.id="star"+trcount
+  r=document.createElement("i")
+  r.classList.add("fa")
+  r.classList.add("fa-star")
+  r.classList.add("rated")
+  qa.appendChild(r)
+  
+  s=document.createElement("td")
+  s.style.position="relative"
+  s.style.left="2.5"
+  s.style.top="40%"
+  t=document.createElement("i")
+  t.classList.add("fa")
+  t.classList.add("fa-star")
+  t.classList.add("rated")
+  qa.appendChild(t)
+  
+  u=document.createElement("td")
+  u.style.position="relative"
+  u.style.left="2.5%"
+  u.style.top="40%"
+  v=document.createElement("i")
+  v.classList.add("fa")
+  v.classList.add("fa-star")
+  v.classList.add("rated")
+  qa.appendChild(v)
+  
+  w=document.createElement("td")
+  w.style.position="relative"
+  w.style.left="5.5%"
+  w.style.top="40%"
+  x=document.createElement("i")
+  x.classList.add("fa")
+  x.classList.add("fa-star")
+  qa.appendChild(x)
+  
+  y=document.createElement("td")
+  y.style.position="relative"
+  y.style.left="7%"
+  y.style.top="40%"
+  z=document.createElement("i")
+  z.classList.add("fa")
+  z.classList.add("fa-star")
+  qa.appendChild(z)
+  
+  aa=document.createElement("tr")
+  aa.id="lction"+trcount
+  document.getElementById(tabid).appendChild(aa)
+  ab=document.createElement("td")
+  ab.style.fontSize="23px"
+  ac=document.createElement("i")
+  ac.classList.add("fa")
+  ac.classList.add("fa-map-marker")
+  ac.style.fontSize="23px"
+  ad=document.createTextNode("Kottayam")
+  ab.appendChild(ac)
+  ab.appendChild(ad)
+  aa.appendChild(ab)
+  ae=document.createElement("tr")
+  ae.id="highlight"+trcount
+  document.getElementById(tabid).appendChild(ae)
+  af=document.createElement("td")
+  af.style.fontSize="23px"
+  ag=document.createTextNode("Punctual")
+  ah=document.createTextNode("|")
+  ai=document.createTextNode("Honest")
+  aj=document.createTextNode("|")
+  ak=document.createTextNode("Proficient")
+  af.appendChild(ag)
+  af.appendChild(ah)
+  af.appendChild(ai)
+  af.appendChild(aj)
+  af.appendChild(ak)
+  ae.appendChild(af)
+  al=document.createElement("tr")
+  al.id="book"+trcount
+  document.getElementById(tabid).appendChild(al)
+  am=document.createElement("td")
+  am.style.border="1px solid black"
+  an=document.createElement("button")
+  an.style.width="17%"
+  an.style.padding="5px"
+  an.style.borderRadius="15px"
+  ao=document.createTextNode("Hire")
+  an.appendChild(ao)
+  am.appendChild(an)
+  ap=document.createElement("button")
+  ap.style.position="relative"
+  ap.style.left="2%"
+  ap.style.width="17%"
+  ap.style.borderRadius="15px"
+  ap.style.padding="5px"
+  aq=document.createTextNode("Call")
+  ap.appendChild(aq)
+  am.appendChild(ap)
+  ar=document.createElement("button")
+  ar.style.position="relative"
+  ar.style.left="4%"
+  ar.style.width="17%"
+  ar.style.padding="5px"
+  ar.style.borderRadius="15px"
+  as=document.createTextNode("Chat")
+  ar.appendChild(as)
+  am.appendChild(ar)
+  al.appendChild(am)
+  at=document.createElement("br")
+  document.getElementById("profile").appendChild(at)
+}
+</script>
+</body>
+</html>

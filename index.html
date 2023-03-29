@@ -1,230 +1,236 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>Login </title>
-   <meta name="viewport" content="width=device-width, initial-scale=1">
-   
-   <!-- Fontawesome Library -->
-   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-   <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+
+  <link rel="shortcut icon" type="image/png" href="App Home/assets/logo/logo_transparent.png">
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- Font Awesome Library -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/> 
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="App Home/style.css">
+  <link rel="stylesheet" href="App Home/home.css">
 </head>
 <body>
-   <!-- Sarthak's Stepper From -->
-   <section>
-      <form action="" method="post">
-         <div class="box">
-            <h2>Step 1</h2>
-               <div class="inputBox">
-                  <input type="text" name="first_name" required>
-                  <label>First Name*</label>
-               </div>
-               <div class="inputBox">
-                  <input type="text" name="last_name" required>
-                  <label>Last Name*</label>
-               </div>
-            <div class="buttonSection" id="firstButtonSection">
-               <button type="button" class="nextButton">Next</button>
-            </div>
-         </div>
-         <div class="box">
-            <h2>Step 2</h2>
-               <div class="inputBox">
-                  <input type="date" name="dob" required>
-                  <label>Date of Birth (dd/mm/yyyy)*</label>
-               </div>
-               <div class="inputBox">
-                  <input type="text" name="father_name" required>
-                  <label>Father's Name*</label>
-               </div>
-            <div class="buttonSection">
-               <button type="button" class="previousButton">Previous</button>
-               <button type="button" class="nextButton">Next</button>
-            </div>
-         </div>
-         <div class="box">
-            <h2>Step 3</h2>
-               <div class="inputBox">
-                  <input type="text" name="city" required>
-                  <label>City*</label>
-               </div>
-               <div class="inputBox">
-                  <input type="text" name="country" required>
-                  <label>Country*</label>
-               </div>
-            <div class="buttonSection">
-               <button type="button" class="previousButton">Previous</button>
-               <button type="button" class="nextButton">Next</button>
-            </div>
-         </div>
-         <div class="box">
-            <h2>Step 3</h2>
-               <div class="inputBox">
-                  <input type="text" name="lang" required>
-                  <label>Preferred Language*</label>
-               </div>
-               <div class="inputBox">
-                  <input type="tel" name="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required>
-                  <label>Mobile Number* (with country code)</label>
-               </div>
-            <div class="buttonSection">
-               <button type="button" class="previousButton">Previous</button>
-               <button type="button" class="nextButton">Next</button>
-            </div>
-         </div>
-         <div class="box">
-            <h2>Step 3</h2>
-               <div class="inputBox">
-                  <input type="text" name="username" required>
-                  <label>Choose a Username*</label>
-               </div>
-               <div class="inputBox">
-                  <input type="password" name="password" required>
-                  <label>Choose a Password*</label>
-               </div>
-               <div class="inputBox">
-                  <input type="password" name="password" required>
-                  <label>Confirm Password</label>
-               </div>
-            <div class="buttonSection">
-               <button type="button" class="previousButton">Previous</button>
-               <button type="button" class="nextButton">Next</button>
-            </div>
-         </div>
-         <div class="box">
-            <h2>Are you sure you want to Submit?</h2>
-            <div class="buttonSection">
-               <button type="button" class="previousButton">Go Back</button>
-               <button type="button" class="nextButton" id="submitButton">Submit</button>
-            </div>
-         </div>
-         <div class="box">
-            <h2>Success <i class="fas fa-check-circle"></i></h2>
-         </div>
-      </form>
-      <script type="text/javascript" src="Stepper_Form.js"></script>
-   </section>
+  <header class="bg-dark" data-bs-theme="dark">
+    <span id="brand_name">
+      <h1>मेरा स्थानीय</h1>
+    </span>
+    <img src="App Home/assets/logo/logo.png"  class="img-thumbnail" id="logo" alt="Logo">
+    <span id="brand_name">
+      <h1>My Local</h1>
+    </span>
+  </header>
+  <nav class="navbar navbar-dark navbar-expand-lg bg-dark fixed" data-bs-theme="dark">
+    <div class="container-fluid">
+      <a class="navbar-brand d-flex align-items-center justify-content-center flex-column" href="#">
+        <span><i class="bi bi-house-door-fill"></i></span>
+        <span>Home</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Home</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav justify-content-around flex-grow-1 pe-3">
+            <li class="nav-item">
+              <a class="nav-link d-flex align-items-center justify-content-center flex-column" href="side_pages/page.html" role="button">
+                <span><i class="bi bi-people-fill"></i></span> 
+                <span>People</span> 
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link d-flex align-items-center justify-content-center flex-column" href="#" role="button">
+                <span><i class="bi bi-bag-fill"></i></span>
+                <span>Deals</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link d-flex align-items-center justify-content-center flex-column" href="side_pages/hiring.html" role="button">
+                <span><i class="bi bi-person-badge-fill"></i></span>
+                <span>Hiring</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link d-flex align-items-center justify-content-center flex-column" href="login.html" role="button">
+                <span><i class="bi bi-person-fill"></i></span>
+                <span>Login</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link d-flex align-items-center justify-content-center flex-column" href="#" role="button">
+                <span><i class="bi bi-person-plus-fill"></i></span>
+                <span>Sign Up</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>        
+    </div>
+  </nav>
+    
+  <section class="container-fluid" id="main_content">
+    <div class="row align-items-center content">
+      <div class="col-md-6 order-1 order-md-1 px-0 py-0">
+        <img src="App Home/imgs/auto.jpg" class="img-fluid post-img" alt="">
+      </div>
+      <div class="col-md-6 order-2 order-md-2 mt-3 mb-3">
+        <div class="row">
+          <div class="col-12 col-lg-8 blurb">
+            <h2>Raju Auto Rickshaw</h2>
+            &nbsp; &nbsp;
+            <span class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic in, nostrum rem maiores quidem blanditiis accusamus non aut animi incidunt fugiat libero dignissimos magni labore nesciunt id, at odit temporibus!
+            </span>
+          </div>
+        </div>
+        <div class="row mt-4">
+          <div class="col-12 col-lg-8 blurb d-flex justify-content-around align-items-center">
+            <span class="post-icon">
+              <i class="bi bi-heart-fill" style="color: red;"></i>
+            </span>
+            <span class="post-icon">
+              <i class="bi bi-chat-dots"></i>
+            </span>
+            <span class="post-icon">
+              <i class="bi bi-bag"></i>
+            </span>
+            <span class="post-icon">
+              <i class="bi bi-bookmark"></i>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row align-items-center content">
+      <div class="col-md-6 order-1 order-md-2 px-0 py-0 d-flex justify-content-end">
+        <img src="App Home/imgs/metal-worls.jpg" class="img-fluid post-img" alt="">
+      </div>
+      <div class="col-md-6 order-2 order-md-1 mt-3 mb-3">
+        <div class="row">
+          <div class="col-12 col-lg-8 blurb">
+            <h2>Raju Auto Rickshaw</h2>
+            &nbsp; &nbsp;
+            <span class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic in, nostrum rem maiores quidem blanditiis accusamus non aut animi incidunt fugiat libero dignissimos magni labore nesciunt id, at odit temporibus!
+            </span>
+          </div>
+        </div>
+        <div class="row mt-4">
+          <div class="col-12 col-lg-8 blurb d-flex justify-content-around align-items-center">
+            <span class="post-icon">
+              <i class="bi bi-heart-fill" style="color: red;"></i>
+            </span>
+            <span class="post-icon">
+              <i class="bi bi-chat-dots"></i>
+            </span>
+            <span class="post-icon">
+              <i class="bi bi-bag"></i>
+            </span>
+            <span class="post-icon">
+              <i class="bi bi-bookmark"></i>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row align-items-center content">
+      <div class="col-md-6 order-1 order-md-1 px-0 py-0">
+        <img src="App Home/imgs/plumber.jpg" class="img-fluid post-img" alt="">
+      </div>
+      <div class="col-md-6 order-2 order-md-2 mt-3 mb-3">
+        <div class="row">
+          <div class="col-12 col-lg-8 blurb">
+            <h2>Raju Auto Rickshaw</h2>
+            &nbsp; &nbsp;
+            <span class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic in, nostrum rem maiores quidem blanditiis accusamus non aut animi incidunt fugiat libero dignissimos magni labore nesciunt id, at odit temporibus!
+            </span>
+          </div>
+        </div>
+        <div class="row mt-4">
+          <div class="col-12 col-lg-8 blurb d-flex justify-content-around align-items-center">
+            <span class="post-icon">
+              <i class="bi bi-heart-fill" style="color: red;"></i>
+            </span>
+            <span class="post-icon">
+              <i class="bi bi-chat-dots"></i>
+            </span>
+            <span class="post-icon">
+              <i class="bi bi-bag"></i>
+            </span>
+            <span class="post-icon">
+              <i class="bi bi-bookmark"></i>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row align-items-center content">
+      <div class="col-md-6 order-1 order-md-2 px-0 py-0 d-flex justify-content-end">
+        <img src="App Home/imgs/teacher-children.jpg" class="img-fluid post-img" alt="">
+      </div>
+      <div class="col-md-6 order-2 order-md-1 mt-3 mb-3">
+        <div class="row">
+          <div class="col-12 col-lg-8 blurb">
+            <h2>Raju Auto Rickshaw</h2>
+            &nbsp; &nbsp;
+            <span class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic in, nostrum rem maiores quidem blanditiis accusamus non aut animi incidunt fugiat libero dignissimos magni labore nesciunt id, at odit temporibus!
+            </span>
+          </div>
+        </div>
+        <div class="row mt-4">
+          <div class="col-12 col-lg-8 blurb d-flex justify-content-around align-items-center">
+            <span class="post-icon">
+              <i class="bi bi-heart-fill" style="color: red;"></i>
+            </span>
+            <span class="post-icon">
+              <i class="bi bi-chat-dots"></i>
+            </span>
+            <span class="post-icon">
+              <i class="bi bi-bag"></i>
+            </span>
+            <span class="post-icon">
+              <i class="bi bi-bookmark"></i>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <footer  id="footer" class="bg-dark row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 border-top d-flex justify-content-center" data-bs-theme="dark">
+    <div class="container container-fluid row align-items-center">
+      <div id="footer_icons" class="row align-items-center col-12">
+        <div class="col-3"><a href="#" target="blank"><i class="fa-brands fa-twitter"></i></a></div>
+        <div class="col-3"><a href="#" target="blank"><i class="fa-brands fa-facebook"></i></a></div>
+        <div class="col-3"><a href="#" target="blank"><i class="fa-brands fa-linkedin"></i></a></div>
+        <div class="col-3"><a href="#"><i class="fa-brands fa-youtube"></i></a></div>
+      </div>
+      <div class="col-12 mb-12">
+        <h5>Quick Links</h5>
+        <ul class="nav flex-column" id="footer_links">
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
+          <li class="nav-item mb-2"><a href="side_pages/page.html" class="nav-link p-0 text-muted">People</a></li>
+          <li class="nav-item mb-2"><a href="side_pages/hiring.html" class="nav-link p-0 text-muted">Hiring</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Contact Us</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Site Map</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
 
-<!--    
-<div id="a">
- <div class="b">
-  <h2 style="font-size:135%;">Sign In</h2>
- </div>
- <input class="d" type="text" id="user" placeholder="Username" required>
- <br>
- <br>
- <input class="d" type="password" id="pwd" placeholder="Password" required>
- <br><br>
- <button onclick="left()" class="signin">Sign In</button>
- <br>
- <br>
- <div class="c">
-  or
- </div>
- <br>
-
- <button onclick="left()" class="x">Continue with Google </button>
- <hr>
-
- <p style="font-size:100%"> Don't have an account? <a href=""> Sign Up Now </a> </p>
-</div>
-<div id="b">
- <h3 style="font-size:120%">Please take few minutes to Complete your profile </h3>
- <div style="font-size:100%"> Choose your preferred language </div>
- <select class="e" id="language">
-   <option value=" ">   </option>
-   <option value="eng">English</option>
-   <option value="tam">Tamil </option>
-   <option value="mal">Malayalam</option>
-   <option value="hin">Hindi</option>
- </select>
- <br>
- <br>
- <button onclick="nxtpg()" class="nxt">Next</button>
-</div>
-<div id="c">
- <h3 style="font-size:120%">Please select your field(s) of proficiency</h3>
- <div class="d">
-  <input type="checkbox" id="prof" value="Plumber">Plumber
-  <input type="checkbox" id="prof" value="Electrician">Electrician
-  <br><br>
-  <input type="checkbox" id="prof" value="Mason">Mason
-  &nbsp&nbsp&nbsp<input type="checkbox" id="prof" value="Carpenter">Carpenter
-  <br><br>
-  <input type="checkbox" id="prof" value="Cleaner">Cleaner
-  &nbsp<input type="checkbox" id="prof" value="Painter">Painter
- </div>
- Others, please specify<input class="e" type="text" id="others">
- <br><br>
- <button onclick="area()" class="nxt1">Next</button>
- <button onclick="pre()" class="prev">Back</button>
-</div>
-<div id="d">
- <h3>Please select your preferred area to work(cities)</h3>
- <select class="e" id="country">
-   <option value=" " disabled selected>Country</option>
-   <option value="India">India</option>
-   <option value="South Africa">Africa</option>
-   <option value="Syria">Syria</option>
- </select>
- <br><br>
- <select class="e" id="state">
-   <option value=" " disabled selected>State</option>
- </select>
- <br><br>
- <select class="e" id="neighbourhood">
-   <option value=" " disabled selected>Neighbourhood</option>
- </select>
- <br><br>
- <button onclick="setup()" class="nxt1">Next</button>
- <button onclick="prearea()" class="prev">Back</button>
-</div>
-<script>
-function left(){
-document.getElementById("a").style.left="20%"
-hide()}
-function hide(){
-document.getElementById("a").style.visibility="hidden"
-document.getElementById("b").style.visibility="visible"
-document.getElementById("b").style.left="36%"
-}
-function nxtpg(){
-document.getElementById("b").style.transition=".1s"
-document.getElementById("b").style.left="18%"
-document.getElementById("b").style.visibility="hidden"
-document.getElementById("c").style.visibility="visible"
-document.getElementById("c").style.left="36%"
-}
-function area(){
-document.getElementById("c").style.transition=".1s"
-document.getElementById("c").style.left="18%"
-document.getElementById("c").style.visibility="hidden"
-document.getElementById("d").style.visibility="visible"
-document.getElementById("d").style.left="36%"
-}
-function pre(){
-document.getElementById("c").style.transition=".1s"
-document.getElementById("c").style.left="60%"
-document.getElementById("c").style.visibility="hidden"
-document.getElementById("b").style.visibility="visible"
-document.getElementById("b").style.left="36%"
-}
-function setup(){
-document.getElementById("d").style.transition=".1s"
-document.getElementById("d").style.left="18%"
-document.getElementById("d").style.visibility="hidden"
-}
-function prearea(){
-document.getElementById("d").style.transition=".1s"
-document.getElementById("d").style.left="60%"
-document.getElementById("d").style.visibility="hidden"
-document.getElementById("c").style.visibility="visible"
-document.getElementById("c").style.left="36%"
-}
-</script> -->
-
-<script type="text/javascript" src="Stepper_Form.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
 </body>
 </html>
-
-
-
