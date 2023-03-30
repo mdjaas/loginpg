@@ -170,7 +170,7 @@
          <div class="box">
             <h2>Step 3</h2>
                <div class="inputBox">
-                  <input id="username" type="text" name="username" required>
+                  <input id="username" onchange="log()" type="text" name="username" required>
                   <label>Choose a Username*</label>
                </div>
                <div class="inputBox">
@@ -305,6 +305,62 @@ function store(){
             });
         }
 count+=1}
+</script>
+
+<script>
+
+countnum=0
+countx=0;
+var dataa=[]
+datacount=1
+function log(){
+function retrieved(){
+/*f=document.getElementById("nam").innerText*/
+var ref = firebase.database().ref('/credential/credential'+datacount);
+datacount+=1
+ref.on("value", function(snapshot) {
+   console.log(snapshot.val().username);
+   user=snapshot.val().username
+   login()
+}, function (error) {
+   console.log("Error: " + error.code);
+});
+}
+
+
+/*f=document.getElementById("nam").innerText*/
+var ref = firebase.database().ref('/credential/');
+ref.on('child_added', function(snapshot) {
+   countnum++;
+  // how do I know if this is the last child? i.e. the count is complete?
+});
+
+ref.on('value', function(snapshot) {
+countx+=countnum
+counter()
+
+});
+function counter(){
+for(; datacount<=countx;){
+retrieved()}}
+}
+
+function login(){
+    
+    if(document.getElementById("username").value==user){
+         alert("Username already taken")
+        if(datacount==countx+1){
+           datacount=1
+           countx=0
+           countnum=0}
+         }
+    else{
+          if(datacount==countx+1){
+           count=datacount
+           datacount=1
+           countx=0
+           countnum=0}}
+}
 </script>
 </body>
 </html>
