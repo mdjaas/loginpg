@@ -1,15 +1,27 @@
 <html>
 <head>
-<title> Hiring Page</title>
-<meta name="viewport" content="initial-scale=1.0">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   <title> Hiring Page</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="shortcut icon" type="image/png" href="../App Home/assets/logo/logo_transparent.png">
+
+   <!-- Bootstrap -->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" rel="stylesheet">
+   <!-- Font Awesome Library -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/> 
+
+   <!-- Custom CSS -->
+   <link rel="stylesheet" href="../App Home/style.css">
 <style>
-div.hire{position:fixed;
-         left:30%;
+body{overflow-y:scroll;}
+div.hire{position:relative;
+         left:15%;
          border:1px solid black;
          border-radius:15px;
          padding:8px;
-         width:40%;
+         width:70%;
+         margin-top: 10px;
+         margin-bottom: 10px;
          }
    .x{font-size:20px;}
    .y{position:relative;
@@ -23,6 +35,29 @@ div.hire{position:fixed;
          left:40%;
          width:20%;
          font-size:20px;}
+   .pic{cursor:pointer;
+        border:1px dotted black;
+        width:auto;
+        height:auto;
+        display:inline-block;}
+   .uplod{position:absolute;
+          width:50%;
+          height:50%;
+          left:40%;
+          top:30%;
+          z-index:9;
+          background-color:white;
+          visibility:hidden;
+          border:1px solid black;
+          border-radius:8px;
+          background-color:green;
+          }
+      #btn1,#btn2,#btn3,#btn4,#btn5{visibility:hidden;
+                                    position:absolute;
+                                    left:35%;
+                                    top:40%;
+                                    font-size:20px;
+                                    }
 div.confirm{position:absolute;
             top:1%;
             height:1%;
@@ -56,44 +91,155 @@ div.confirm{position:absolute;
            top:45%;
            font-size:20px;
            color:blue;}
+    input{
+      width: unset;
+    }
+    @media only screen and (max-width: 750px) {
+      input{
+         width: 70%;
+      }
+      textarea{
+         width: 70%;
+      }
+    }
 </style>
 </head>
 <body>
+   <header class="bg-dark" data-bs-theme="dark">
+      <span id="brand_name">
+         <h1>मेरा स्थानीय</h1>
+      </span>
+      <img src="../App Home/assets/logo/logo.png"  class="img-thumbnail" id="logo" alt="Logo">
+      <span id="brand_name">
+        <h1>My Local</h1>
+      </span>
+   </header>
+   <nav class="navbar navbar-dark navbar-expand-lg bg-dark fixed" data-bs-theme="dark">
+      <div class="container-fluid">
+         <a class="navbar-brand d-flex align-items-center justify-content-center flex-column" href="#">
+            <span><i class="bi bi-person-badge-fill"></i></span>
+            <span>Hiring</span>
+         </a>
+         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+            <span class="navbar-toggler-icon"></span>
+         </button>
+         <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+            <div class="offcanvas-header">
+               <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">People</h5>
+               <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+               <ul class="navbar-nav justify-content-around flex-grow-1 pe-3">
+                  <li class="nav-item">
+                     <a class="nav-link d-flex align-items-center justify-content-center flex-column" href="../index.html" role="button">
+                        <span><i class="bi bi-house-door-fill"></i></span> 
+                        <span>Home</span> 
+                     </a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link d-flex align-items-center justify-content-center flex-column" href="deals.html" role="button">
+                        <span><i class="bi bi-bag-fill"></i></i></span>
+                        <span>Deals</span> 
+                     </a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link d-flex align-items-center justify-content-center flex-column" href="page.html" role="button">
+                        <span><i class="bi bi-people-fill"></i></span> 
+                        <span>People</span>
+                     </a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link d-flex align-items-center justify-content-center flex-column" href="profile.html" role="button">
+                        <span><i class="bi bi-person-circle"></i></span>
+                        <span>Profile</span>
+                     </a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link d-flex align-items-center justify-content-center flex-column" href="login.html" role="button">
+                        <span><i class="bi bi-person-fill"></i></span>
+                        <span>Login</span>
+                     </a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link d-flex align-items-center justify-content-center flex-column" href="sarthak signup.html" role="button">
+                        <span><i class="bi bi-person-plus-fill"></i></span>
+                        <span>Sign Up</span>
+                     </a>
+                  </li>
+               </ul>
+            </div>
+         </div>        
+      </div>
+   </nav>
+
+   <section class="container-fluid" id="main_content">
 <center>
    <h1>Hiring Page</h1>
 </center>
-<div class="hire">
+<div id="hiring" class="hire">
   <table>
     <tr>
       <td class="x">Name of the hirer</td>
-      <td><input class="y" type="text"></td>
+      <td><input id="name" class="y" type="text"></td>
     </tr>
     <tr></tr>
     <tr>
       <td class="x">Type of work</td>
-      <td><input class="y" type="text"></td>
+      <td><input id="type" class="y" type="text"></td>
     </tr>
     <tr></tr>
     <tr>
       <td class="x">Description</td>
-      <td><textarea class="y" rows="4" cols="21"></textarea></td>
+      <td><textarea id="desc" class="y" rows="4" cols="21"></textarea></td>
     </tr>
     <tr></tr>
-    <tr>
-      <td class="x">Upload Images Of work</td>
-      <td><input class="y" type="file" accept="image/*" multiple></td>
-    </tr>
+    <td class="x">Upload Images Of work</td>
+    </table>
+    <input id="imgupload" class="y" type="file" accept="image/*, video/*" multiple capture hidden>
+    <div class="pic" onclick="uploading1()"> Add Photo/Video
+        <img id="pic1" width="100px" height="50px"> 
+    </div>
+    <div class="pic" onclick="uploading2()"> Add Photo/Video 
+        <img id="pic2" width="100px" height="50px">
+    </div>
+    <div class="pic" onclick="uploading3()"> Add Photo/Video 
+        <img id="pic3" width="100px" height="50px">
+    </div>
+    <div class="pic" onclick="uploading4()"> Add Photo/Video
+        <img id="pic4" width="100px" height="50px"> 
+    </div>
+    <div class="pic" onclick="uploading5()"> Add Photo/Video
+        <img id="pic5" width="100px" height="50px"> 
+    </div>
+    <div id="uplod" class="uplod">
+       <span onclick="clos()" class="close" style="cursor:pointer; font-size:35px;">&times;</span>
+       <button id="btn1" onclick="picupload1()">Upload</button>
+       <button id="btn2" onclick="picupload2()">Upload</button>
+       <button id="btn3" onclick="picupload3()">Upload</button>
+       <button id="btn4" onclick="picupload4()">Upload</button>
+       <button id="btn5" onclick="picupload5()">Upload</button>
+    </div>
+  <table>
     <tr></tr>
     <tr>
-      <td><button class="locate">Locate my address</button></td>
+      <td><button onclick="getLocation()" class="locate">Locate my address</button></td>
+      <td></td>
+      <td id="lction"></td>
     </tr>
     <tr></tr>
     <tr>
       <td class="x">Choose Your Date and Time</td>
-      <td><input class="y" type="date"></td>
+      <td><input class="y" type="date" id="dat"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><input class="y" type="time" style="width:100%;" id="tim" min="8:30" max="21:00"></td>
     </tr>
   </table>
-  <button onclick="confirm()" class="hire">Hire Now</button>
+  <br>
+  <div id="hirbtn">
+     <button class="hire">Hire Now</button>
+  </div>
 </div>
 <div id="conf" class="confirm">
    <div id="done" class="done">
@@ -105,8 +251,53 @@ div.confirm{position:absolute;
    </div>
    
 </div>
+   </section>
 
+   <footer  id="footer" class="bg-dark row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 border-top d-flex justify-content-center" data-bs-theme="dark">
+      <div class="container container-fluid row align-items-center">
+         <div id="footer_icons" class="row align-items-center col-12">
+            <div class="col-3"><a href="#" target="blank"><i class="fa-brands fa-twitter"></i></a></div>
+            <div class="col-3"><a href="#" target="blank"><i class="fa-brands fa-facebook"></i></a></div>
+            <div class="col-3"><a href="#" target="blank"><i class="fa-brands fa-linkedin"></i></a></div>
+            <div class="col-3"><a href="#"><i class="fa-brands fa-youtube"></i></a></div>
+         </div>
+         <div class="col-12 mb-12">
+            <h5>Quick Links</h5>
+            <ul class="nav flex-column" id="footer_links">
+               <li class="nav-item mb-2"><a href="../index.html" class="nav-link p-0 text-muted">Home</a></li>
+               <li class="nav-item mb-2"><a href="page.html" class="nav-link p-0 text-muted">People</a></li>
+               <li class="nav-item mb-2"><a href="hiring.html" class="nav-link p-0 text-muted">Hiring</a></li>
+               <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Contact Us</a></li>
+               <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Site Map</a></li>
+            </ul>
+         </div>
+      </div>
+   </footer>
+
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
 <script>
+
+var x = document.getElementById("lction");
+a= document.getElementById("imgupload").value
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.watchPosition(showPosition);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+    
+function showPosition(position) {
+    x.innerHTML="Latitude: " + position.coords.latitude + 
+    "<br>Longitude: " + position.coords.longitude;
+}
+function imag(){
+   document.getElementById("imgupload").click()
+}
 function confirm(){
    document.getElementById("conf").style.visibility="visible"
    document.getElementById("conf").style.height="100%"
@@ -114,6 +305,134 @@ function confirm(){
    document.getElementById("done").style.top="30%"
    document.getElementById("don").style.visibility="visible"
 }
+
+function uploading1(){
+   document.getElementById("uplod").style.visibility="visible"
+   document.getElementById("btn1").style.visibility="visible"
+   imag()
+} 
+function uploading2(){
+   document.getElementById("uplod").style.visibility="visible"
+   document.getElementById("btn2").style.visibility="visible"
+   imag()
+} 
+function uploading3(){
+   document.getElementById("uplod").style.visibility="visible"
+   document.getElementById("btn3").style.visibility="visible"
+   imag()
+} 
+function uploading4(){
+   document.getElementById("uplod").style.visibility="visible"
+   document.getElementById("btn4").style.visibility="visible"
+   imag()
+} 
+function uploading5(){
+   document.getElementById("uplod").style.visibility="visible"
+   document.getElementById("btn5").style.visibility="visible"
+   imag()
+} 
+ 
+function picupload1(){
+   document.getElementById("pic1").src=document.getElementById("imgupload").files[0].name
+   document.getElementById("uplod").style.visibility="hidden"
+   document.getElementById("btn1").style.visibility="hidden"
+}
+function picupload2(){
+   document.getElementById("pic2").src=document.getElementById("imgupload").files[0].name
+   document.getElementById("uplod").style.visibility="hidden"
+   document.getElementById("btn2").style.visibility="hidden"
+
+}
+function picupload3(){
+   document.getElementById("pic3").src=document.getElementById("imgupload").files[0].name
+   document.getElementById("uplod").style.visibility="hidden"
+   document.getElementById("btn3").style.visibility="hidden"
+
+}
+function picupload4(){
+   document.getElementById("pic4").src=document.getElementById("imgupload").files[0].name
+   document.getElementById("uplod").style.visibility="hidden"
+   document.getElementById("btn4").style.visibility="hidden"
+
+}
+function picupload5(){
+   document.getElementById("pic5").src=document.getElementById("imgupload").files[0].name
+   document.getElementById("uplod").style.visibility="hidden"
+   document.getElementById("btn5").style.visibility="hidden"
+
+}
+function clos(){
+   document.getElementById("uplod").style.visibility="hidden"
+   document.getElementById("btn1").style.visibility="hidden"
+   document.getElementById("btn2").style.visibility="hidden"
+   document.getElementById("btn3").style.visibility="hidden"
+   document.getElementById("btn4").style.visibility="hidden"
+   document.getElementById("btn5").style.visibility="hidden"
+
+}
+</script>
+
+<script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+<script>
+ const firebaseConfig = {
+    apiKey: "AIzaSyB627a-ThWusMYiaPooK8R57UDkD2OdAp4",
+    authDomain: "gsolution-240c6.firebaseapp.com",
+    databaseURL: "https://gsolution-240c6-default-rtdb.firebaseio.com",
+    projectId: "gsolution-240c6",
+    storageBucket: "gsolution-240c6.appspot.com",
+    messagingSenderId: "734513557996",
+    appId: "1:734513557996:web:fe84d9214593159b1950c9"
+  };
+firebase.initializeApp(firebaseConfig);
+
+q=window.localStorage.getItem('hire')
+/*f=document.getElementById("nam").innerText*/
+ var a="/hiring/"+q
+ var messagesRef = firebase.database()
+            .ref(a);
+        document.getElementById('hirbtn')
+            .addEventListener('click', submitForm);
+        function submitForm(e) {
+            e.preventDefault();
+            // Get values
+             var hirername=document.getElementById("name").value;
+             var worktype= document.getElementById("type").value;
+             var description=document.getElementById("desc").value
+             var image1=document.getElementById("pic1").src
+             var image2=document.getElementById("pic2").src
+             var image3=document.getElementById("pic3").src
+             var image4=document.getElementById("pic4").src
+             var image5=document.getElementById("pic5").src
+             var lction=document.getElementById("lction").innerText
+             var dat=document.getElementById("dat").value
+             var tim=document.getElementById("tim").value
+            console.log(hirername);
+            saveMessage(hirername,worktype,description,image1,image2,image3,image4,image5,lction,dat,tim);
+            confirm()  
+           }            
+        // Function to get form values
+        function getInputVal(id) {
+            return document.getElementById(id).value;
+        }
+        // Save message to firebase
+        function saveMessage(hirername,worktype,description,image1,image2,image3,image4,image5,lction,dat,tim) {
+             
+             /*var newMessageRef = messagesRef.push();*/
+            messagesRef.update({
+                hirername:hirername, 
+                worktype:worktype,
+                description:description,
+                image1:image1,
+                image2:image2,
+                image3:image3,
+                image4:image4,
+                image5:image5,
+                location:lction,
+                date:dat,
+                time:tim, 
+            });}
+        
 </script>
 </body>
 </html>

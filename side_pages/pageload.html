@@ -1,0 +1,364 @@
+<html>
+<head>
+<title> Profile Page</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+ button{cursor:pointer;}
+ div.pr{position:absolute;
+        z-index:9;
+        top:7%;
+        left:15%;
+        border:1px solid black;}
+   .pri{
+        border:1px solid black;
+        border-bottom-left-radius:10%;
+        border-bottom-right-radius:10%;}
+   .prp{position: absolute;
+        left:2%;
+        top:45%;
+   
+       border:1px solid black;
+       border-radius:50%;}   
+         
+   .name{position:relative;
+         left:20%;} 
+   .job{position:relative;
+        left:20%;
+        font-size:20px;}
+   .city{position:relative;
+         left:20%;
+         font-size:20px;}
+   .rating1{position:relative;
+           left:20%;
+           color:orange;}
+   .rating2{position:relative;
+           left:22%;
+           color:orange;}
+   .rating3{position:relative;
+           left:24%;
+           color:orange;}
+   .rating4{position:relative;
+           left:26%;}
+   .rating5{position:relative;
+           left:28%;}
+div.bio{position:absolute;
+        top:70%;
+        left:17%;
+        height:50%;
+        width:20%;
+        border:1px solid black;
+        border-radius:8px;
+        font-size:20px;
+        padding:10px;}
+div.posts{position:absolute;
+          top:70%;
+          left:40%;
+          width:55%;}
+    .post{position:absolute;
+          width:88%;
+          font-size:20px;
+          border:1px solid black;
+          border-radius:5px;}
+div.comments{position:fixed;
+             left:15%;
+             z-index:9;
+             background-color:yellow;
+             width:74%;
+             height:10%;
+             top:90%;
+             border-top: 1px solid black;
+             border-left:1px solid black;
+             border-right:1px solid black;
+             font-size:20px;
+             transition:0.5s;}
+   .exp{font-size:15px;
+        cursor:pointer;
+        width:5%;
+        color:blue;}
+   div.comment{position:relative;
+               max-height: 100px;
+               overflow-y:scroll;}
+</style>
+</head>
+<body>
+<form id="prof">
+
+<div class="pr">
+   <input type="file" id="coverph" accept="image/*" hidden>
+   <input type="file" id="profileph" accept="image/*" hidden>
+   <img id="coverimage" onclick="coverupload()" class="pri" src="https://www.rd.com/wp-content/uploads/2022/01/GettyImages-174655938.jpg" width="1000px" height="250px">
+   <img id="profimage" onclick="profileupload()" class="prp" src="https://www.bugatti.com/fileadmin/_processed_/e/e/csm_og-image_506cf6a92e.jpg" width="150px" height="150px">
+   <h2 class="name" id="nam"> Mahendran</h2>
+   <i class="fa fa-briefcase job">&nbsp Plumber</i>
+   <br>
+   <div class="city">
+    <i class="fa fa-building">&nbsp&nbspKottayam</i>
+    <i class="fa fa-star rating1"></i>
+    <i class="fa fa-star rating2"></i>
+    <i class="fa fa-star rating3"></i>
+    <i class="fa fa-star rating4"></i>
+    <i class="fa fa-star rating5"></i>
+   </div>
+</div>
+</form>
+<div id="posts" class="posts">
+   
+</div>
+
+<div class="bio">
+   <i class="fa fa-map-marker"> &nbsp From <b id="plac">Trivandrum</b></i>
+   <br><br>
+   <i class="fa fa-graduation-cap">&nbsp Completed <b id="edu">Diploma in Civil &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Engineering</b></i>
+   <br><br>
+   <i class="fa fa-suitcase"></i><sup><i style="font-size:10px;" class="fa fa-clock-o"></i></sup>&nbspExperience <b id="exper">5 years</b>
+   <br><br>
+   <i class="fa fa-check-square-o">&nbsp&nbspCompleted <b id="taskcomp">232 </b> Tasks</i>
+   <br><br>
+   <i class="fa fa-language">&nbsp Speaks <b id="langkn"> English, Hindi</b> </i>
+   <br><br>
+   
+</div>
+   
+
+
+<div id="comm" class="comments">
+  <center>
+     <b>Customer Reviews and Ratings</b>
+     <br>
+     <i style="color:orange;" class="fa fa-star"></i>
+     <i style="color:orange;" class="fa fa-star"></i>
+     <i style="color:orange;" class="fa fa-star"></i>
+     <i style="color:orange;" class="fa fa-star"></i>
+     <i class="fa fa-star"></i>
+     <br>
+     <div id="expand" class="exp" onclick="comment()"><u>Expand</u></div>
+     <div class="comment">
+     </div>
+  </center>
+</div>
+
+<script>
+function comment(){
+   if(document.getElementById("expand").innerText=="Expand"){
+     document.getElementById("comm").style.top="75%"
+     document.getElementById("comm").style.height="25%"
+     document.getElementById("expand").innerText="Minimise"}
+   else{
+     document.getElementById("comm").style.top="90%"
+     document.getElementById("comm").style.height="10%"
+     document.getElementById("expand").innerText="Expand"}
+   
+}
+
+
+window.onscroll = function(ev) {
+    if (((window.innerHeight + window.scrollY) >= document.body.offsetHeight)==true) {
+      document.getElementById("comm").style.top="100%"
+      document.getElementById("comm").style.height="0%"
+    }
+    pgtop()
+}
+
+function pgtop(){
+   if(document.body.scrollTop === 0){
+      document.getElementById("comm").style.top="90%"
+      document.getElementById("comm").style.height="10%"                
+   } 
+}
+</script>
+
+<script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+<script>
+const firebaseConfig = {
+  apiKey: "AIzaSyB627a-ThWusMYiaPooK8R57UDkD2OdAp4",
+  authDomain: "gsolution-240c6.firebaseapp.com",
+  databaseURL: "https://gsolution-240c6-default-rtdb.firebaseio.com",
+  projectId: "gsolution-240c6",
+  storageBucket: "gsolution-240c6.appspot.com",
+  messagingSenderId: "734513557996",
+  appId: "1:734513557996:web:fe84d9214593159b1950c9"
+};
+
+firebase.initializeApp(firebaseConfig);
+
+function profret(){
+countnum=0
+countx=0;
+var dataa=[]
+datacount=0
+function retrieved(){
+f=window.localStorage.getItem('viewprofile');
+var ref = firebase.database().ref('/profile/'+f);
+datacount+=1
+ref.on("value", function(snapshot) {
+   console.log(snapshot.val().name);
+   m=snapshot.val().cimage
+   n=snapshot.val().primage
+   o=snapshot.val().name
+   dataa.push([m,n])
+   profil()
+}, function (error) {
+   console.log("Error: " + error.code);
+});
+}
+
+
+f=window.localStorage.getItem('viewprofile');
+var ref = firebase.database().ref('/profile/');
+ref.on('child_added', function(snapshot) {
+   countnum++;
+  // how do I know if this is the last child? i.e. the count is complete?
+});
+
+ref.on('value', function(snapshot) {
+countx+=countnum
+counter()
+});
+function counter(){
+for(; datacount<=countx;){
+retrieved()}}
+}
+function profil(){
+document.getElementById("profimage").src=n
+document.getElementById("coverimage").src=m
+}
+
+</script>
+
+<script>
+
+countnum=0
+countx=0;
+const data=[];
+postscount=0
+function retrieve(){
+f=window.localStorage.getItem('viewprofile');
+var ref = firebase.database().ref('/posts/'+f+'/posts'+postscount);
+postscount+=1
+ref.on("value", function(snapshot) {
+   console.log(snapshot.val().postcontent);
+   g=snapshot.val().postcontent
+   k=snapshot.val().postimage
+   data.push([g,k])
+   posting()
+}, function (error) {
+   console.log("Error: " + error.code);
+});
+}
+
+
+f=window.localStorage.getItem('viewprofile');
+var ref = firebase.database().ref('/posts/'+f);
+ref.on('child_added', function(snapshot) {
+   countnum++;
+  // how do I know if this is the last child? i.e. the count is complete?
+});
+
+ref.on('value', function(snapshot) {
+countx+=countnum
+postin=countnum
+counter()
+});
+function counter(){
+for(; postscount<=countx;){
+retrieve()}
+bioret()}
+
+
+count=1
+trcount=1
+function posting(){
+     tableid="postbox"+count
+     trid1="imag"+trcount
+     trid2="desc"+trcount
+     a=document.createElement("table")
+     a.id="postbox"+count
+     a.style.border="1px solid black"
+     a.style.borderRadius="8px"
+     count+=1
+     document.getElementById("posts").appendChild(a)
+     b=document.createElement("tr")
+     b.id="imag"+trcount
+     document.getElementById(tableid).appendChild(b)
+     c=document.createElement("td")
+     d=document.createElement("img")
+     d.style.border="1px solid black"
+     d.style.borderRadius="8px"
+     d.src=k
+     d.style.width="640px"
+     d.style.height="200px"
+     c.appendChild(d)
+     document.getElementById(trid1).appendChild(d)
+     e=document.createElement("tr")
+     e.id="desc"+trcount
+     trcount+=1
+     document.getElementById(tableid).appendChild(e)
+     f=document.createElement("td")
+     l=document.createTextNode(g)
+     f.appendChild(l)
+     document.getElementById(trid2).appendChild(f)
+     h=document.createElement("p")
+     h.innerText="  "
+     document.getElementById("posts").appendChild(h)
+}
+
+</script>
+
+<script>
+
+f=window.localStorage.getItem('viewprofile');
+ 
+function bioret(){
+countnum=0
+countx=0;
+var dataa=[]
+datacount=0
+function retrieved(){
+f=document.getElementById("nam").innerText
+var ref = firebase.database().ref('/biodata/'+f);
+datacount+=1
+ref.on("value", function(snapshot) {
+   console.log(snapshot.val().from);
+   m=snapshot.val().from
+   n=snapshot.val().experience
+   o=snapshot.val().education
+   p=snapshot.val().tasksdone
+   q=snapshot.val().languages
+   dataa.push([m,n])
+   storebio()
+}, function (error) {
+   console.log("Error: " + error.code);
+});
+}
+
+
+f=window.localStorage.getItem('viewprofile');
+var ref = firebase.database().ref('/biodata/');
+ref.on('child_added', function(snapshot) {
+   countnum++;
+  // how do I know if this is the last child? i.e. the count is complete?
+});
+
+ref.on('value', function(snapshot) {
+countx+=countnum
+counter()
+});
+function counter(){
+for(; datacount<=countx;){
+retrieved()}
+profret()}
+}
+function storebio(){
+   document.getElementById("plac").innerText=m
+   document.getElementById("exper").innerText=n
+   document.getElementById("edu").innerText=o
+   document.getElementById("taskcomp").innerText=p
+   document.getElementById("langkn").innerText=q
+ }
+
+</script>
+</body>
+</html>

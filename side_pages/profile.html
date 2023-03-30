@@ -56,6 +56,30 @@ div.z{position:absolute;
       width:15%;
       height:37%;
       visibility:visible;}
+    .filt{position:absolute;
+          left:73.7%;
+          top:102%;
+          width:40%;
+          height:1%;
+          z-index:9;
+          visibility:hidden;
+          transition:0.1s;
+          border:1px solid grey;
+          padding:8px;
+          background-color:white;}
+    .filter{width:100%;
+            font-size:100%;}
+    .resfiltr{position:absolute;
+              left:105.6%;
+              top:32%;
+              width:40%;
+              height:1%;
+              z-index:9;
+             visibility:hidden;
+             transition:0.1s;
+             border:1px solid grey;
+             padding:8px;
+             background-color:white;}
 div.profile{position:absolute;
             left:28%;
             top:30%;
@@ -181,8 +205,79 @@ div.menus{position:fixed;
 </div>
 <div class="z">
   <input class="z" type="text" id="searchw" placeholder="Search for Workers">
-  <button class="a">Fil</button>
-  <button class="d">Fil</button>
+  <button class="a" onclick="filter()"><i class="fa fa-filter" style="font-size:30px; color:red;"></i></button>
+  <button class="d" onclick="filt()"><i class="fa fa-filter" style="font-size:30px; color:red;"></i></button>
+  <div id="filtr" class="filt">
+     <span onclick="filtclose()" style="font-size:30px; cursor:pointer;">&times;</span>
+     <select id="exp" class="filter">
+        <option value=" " disabled selected>Min Experience</option> 
+        <option value="<1 year"> <1 year </option>
+        <option value="1 year">1 year</option>
+        <option value="2-3 years">2-3 years</option>
+        <option value="3-5 years">3-5 years</option>
+        <option value=">5 years"> >5 years </option>
+     </select>
+     <br><br>
+     <select id="emp" class="filter">
+        <option value=" " disabled selected>Employment Type</option>
+        <option value="Part Time">Part Time</option>
+        <option value="Full Time">Full Time</option>
+        <option value="Short/temporary">Short/temporary</option>
+        <option value="Contract">Contract</option>
+     </select>
+     <br><br>
+     <select id="lng" class="filter">
+        <option value=" " disabled selected>Preferred language to be known</option>
+        <option value="English">English</option>
+        <option value="Hindi">Hindi</option>
+        <option value="Marathi">Marathi</option>
+        <option value="Malayalam">Malayalam</option>
+        <option value="Tamil">Tamil</option>
+     </select>
+     <br><br>
+     <button>Apply</button>
+     <input type="reset" value="Clear">  
+        
+  </div>
+  <div id="respfiltr" class="resfiltr">
+     <span onclick="filterclos()" style="font-size:30px; cursor:pointer;">&times;</span>
+     <select id="city" class="filter">
+        <option value=" " disabled selected>City</option>
+     </select>
+     <br><br>
+     <select id="neighbourhood" class="filter">
+        <option value=" " disabled selected>Neighbourhood</option>
+     </select>
+     <br><br>
+     <select id="exp" class="filter">
+        <option value=" " disabled selected>Min Experience</option> 
+        <option value="<1 year"> <1 year </option>
+        <option value="1 year">1 year</option>
+        <option value="2-3 years">2-3 years</option>
+        <option value="3-5 years">3-5 years</option>
+        <option value=">5 years"> >5 years </option>
+     </select>
+     <br><br>
+     <select id="emp" class="filter">
+        <option value=" " disabled selected>Employment Type</option>
+        <option value="Part Time">Part Time</option>
+        <option value="Full Time">Full Time</option>
+        <option value="Short/temporary">Short/temporary</option>
+        <option value="Contract">Contract</option>
+     </select>
+     <br><br>
+     <select id="lng" class="filter">
+        <option value=" " disabled selected>Preferred language to be known</option>
+        <option value="English">English</option>
+        <option value="Hindi">Hindi</option>
+        <option value="Marathi">Marathi</option>
+        <option value="Malayalam">Malayalam</option>
+        <option value="Tamil">Tamil</option>
+     </select>
+     <br><br>
+     <button>Apply</button>
+     <input type="reset" value="Clear">
+  </div>     
   <br><br>
   <select class="b" id="state">
     <option value=" " disabled selected>State</option>
@@ -193,7 +288,6 @@ div.menus{position:fixed;
 </div>
 
 <div id="profile" class="profile">
-   <button onclick="prof()">Click</button>
    <div id="profp" class="pr">
    </div>
    <div id="star" class="star">
@@ -201,6 +295,23 @@ div.menus{position:fixed;
 </div>
 </div>
 <script>
+
+function filt(){
+  document.getElementById("filtr").style.visibility="visible"
+  document.getElementById("filtr").style.height="230%"
+  document.getElementById("filtbtn").style.visibility="visible"
+}
+function filtclose(){
+  document.getElementById("filtr").style.height="1%"
+  document.getElementById("filtr").style.visibility="hidden"
+}
+function filter(){
+  document.getElementById("respfiltr").style.visibility="visible"
+  document.getElementById("respfiltr").style.height="270%"
+}
+function filterclos(){
+  document.getElementById("respfiltr").style.visibility="hidden"
+  document.getElementById("respfiltr").style.height="1%"}
 function menu(){
   document.body.style.backgroundColor="grey"
   document.getElementById("menu").style.visibility="visible"
@@ -213,6 +324,7 @@ function clos(){
   document.body.style.backgroundColor="white"
   document.getElementById("searchw").disabled=false
 }
+
 
 count=1
 trcount=1
@@ -230,7 +342,9 @@ function prof(){
   c=document.createElement("td")
   c.style.border="1px solid black"
   d=document.createElement("IMG")
-  d.src="https://www.rd.com/wp-content/uploads/2022/01/GettyImages-174655938.jpg"
+  d.src=cimag
+  d.onclick = function() { window.localStorage.setItem('viewprofile', ma.innerText);
+                            window.open("pageload.html","_self") };
   d.style.width="558px"
   d.style.height="250px"
   c.appendChild(d)
@@ -254,7 +368,7 @@ function prof(){
   document.getElementById(tabid1).appendChild(f)
   g=document.createElement("td")
   h=document.createElement("img")
-  h.src="https://www.bugatti.com/fileadmin/_processed_/e/e/csm_og-image_506cf6a92e.jpg"
+  h.src=primag
   h.style.width="75px"
   h.style.height="75px"
   h.style.borderRadius="50%"
@@ -264,13 +378,14 @@ function prof(){
   i.id="hire"+trcount
   document.getElementById(tabid).appendChild(i)
   j=document.createElement("td")
-  k=document.createTextNode("  ")
+  k=document.createTextNode("")
   j.appendChild(k)
   i.appendChild(k)
   l=document.createElement("td")                 //appears if the person is fully occupied till a particular date
   l.id="hiring"
-  l.style.position="relative"
-  l.style.left="20%"
+  ma=document.createElement("h2")
+  ma.innerText=name
+  l.appendChild(ma)
   m=document.createElement("p")
   m.innerText="Hired till"
   m.style.color="red"
@@ -296,9 +411,7 @@ function prof(){
   qa.appendChild(r)
   
   s=document.createElement("td")
-  s.style.position="relative"
-  s.style.left="2.5"
-  s.style.top="40%"
+  
   t=document.createElement("i")
   t.classList.add("fa")
   t.classList.add("fa-star")
@@ -306,9 +419,7 @@ function prof(){
   qa.appendChild(t)
   
   u=document.createElement("td")
-  u.style.position="relative"
-  u.style.left="2.5%"
-  u.style.top="40%"
+  
   v=document.createElement("i")
   v.classList.add("fa")
   v.classList.add("fa-star")
@@ -316,18 +427,14 @@ function prof(){
   qa.appendChild(v)
   
   w=document.createElement("td")
-  w.style.position="relative"
-  w.style.left="5.5%"
-  w.style.top="40%"
+  
   x=document.createElement("i")
   x.classList.add("fa")
   x.classList.add("fa-star")
   qa.appendChild(x)
   
   y=document.createElement("td")
-  y.style.position="relative"
-  y.style.left="7%"
-  y.style.top="40%"
+ 
   z=document.createElement("i")
   z.classList.add("fa")
   z.classList.add("fa-star")
@@ -368,6 +475,8 @@ function prof(){
   am=document.createElement("td")
   am.style.border="1px solid black"
   an=document.createElement("button")
+  an.onclick = function() { window.localStorage.setItem('hire', ma.innerText);
+                            window.open("hiring.html","_self") };
   an.style.width="17%"
   an.style.padding="5px"
   an.style.borderRadius="15px"
@@ -397,5 +506,59 @@ function prof(){
   document.getElementById("profile").appendChild(at)
 }
 </script>
+
+<script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+<script>
+ const firebaseConfig = {
+    apiKey: "AIzaSyB627a-ThWusMYiaPooK8R57UDkD2OdAp4",
+    authDomain: "gsolution-240c6.firebaseapp.com",
+    databaseURL: "https://gsolution-240c6-default-rtdb.firebaseio.com",
+    projectId: "gsolution-240c6",
+    storageBucket: "gsolution-240c6.appspot.com",
+    messagingSenderId: "734513557996",
+    appId: "1:734513557996:web:fe84d9214593159b1950c9"
+  };
+firebase.initializeApp(firebaseConfig);
+countnum=0
+countx=0;
+var dataa=[]
+datacount=1
+function retrieved(){
+qa=JSON.parse(window.localStorage.getItem('login'))
+ f=qa[0][1]+qa[0][0]
+
+var ref = firebase.database().ref('/profile/'+f);
+datacount+=1
+ref.on("value", function(snapshot) {
+   console.log(snapshot.val().name);
+   cimag=snapshot.val().cimage
+   primag=snapshot.val().primage
+   name=snapshot.val().name
+   prof()
+}, function (error) {
+   console.log("Error: " + error.code);
+});
+}
+
+
+/*f=document.getElementById("nam").innerText*/
+var ref = firebase.database().ref('/profile/');
+ref.on('child_added', function(snapshot) {
+   countnum++;
+  // how do I know if this is the last child? i.e. the count is complete?
+});
+
+ref.on('value', function(snapshot) {
+countx+=countnum
+counter()
+});
+function counter(){
+for(; datacount<=countx;){
+retrieved()}}
+
+
+</script>
+
 </body>
 </html>

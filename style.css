@@ -1,5 +1,4 @@
 /* Sarthak's Stepper From Styles */
-
 body{
 	margin: 0;
 	padding: 0;
@@ -10,13 +9,17 @@ body{
 	font-family: sans-serif;
 	font-size: 16px;
 	min-height: 100vh;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-
 	/*Variables*/
 	--theme-color: #fa447a;
 	--theme-color-transparent: #fa447a5d;
+}
+
+section#main_content{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 5%;
+	margin-bottom: 5%;
 }
 
 .box{
