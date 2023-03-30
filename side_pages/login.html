@@ -375,8 +375,10 @@ retrieved()}}
 }
 function login(){
   cont=1
-   if(document.getElementById("user").value==uname && document.getElementById("pwd").value==pwd){
-         window.open('index.html','_self')
+     if(document.getElementById("user").value==uname && document.getElementById("pwd").value==pwd){
+        if(worktype==undefined){
+           left()}
+         else{window.open('index.html','_self')}
          localStorage.removeItem("login");
          loginc=[]
          c=loginc.push([uname,fname]) 
@@ -384,13 +386,14 @@ function login(){
          data=JSON.parse(localStorage.getItem('login')) || []
          data.push(reg)
          localStorage.setItem('login', JSON.stringify(data));
+         datacount+=1
    }
-   else if(datacount>countx){
+   else if(datacount==countx+1){
      alert("Incorrect Username or Password")
      countx=0
      datacount=1
      countnum=0
-  }
+
   /*if(datacount>=countx){
      countx=0
      datacount=1
