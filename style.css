@@ -53,7 +53,7 @@ section#main_content{
 	position: relative;
 }
 
-.box .inputBox input, .box .inputBox select{
+.box .inputBox input, .box .inputBox select, .box .inputBox input[type="checkbox"]+ span{
 	width: 100%;
 	padding: 10px 0;
 	font-size: 16px;
@@ -68,6 +68,7 @@ section#main_content{
 select option{
 	color: black;
 }
+
 .box .inputBox input:focus, .box .inputBox select:focus{
 	animation: expand .8s;
 	width: 100%;
@@ -76,6 +77,11 @@ select option{
 .box .inputBox input:valid, .box .inputBox select:valid{
 	width: 100%;
 	border-bottom: 1px solid var(--theme-color);
+}
+
+.box .inputBox input[type="checkbox"]:focus, .box .inputBox input[type="checkbox"]:valid{
+	width: auto;
+	animation: none;
 }
 @keyframes expand{
 	from{
@@ -135,7 +141,7 @@ select option{
 .box #firstButtonSection{
 	justify-content: flex-end;
 }
-.box button{
+.box button, input[type="submit"]{
 	background-color: transparent;
 	font-size: 1.5rem;
 	width: 30%;
@@ -149,20 +155,24 @@ select option{
 	transition: .2s;
 	align-self: center;
 }
-.box button:hover{
+
+#creat{
+	width: 35%;
+}
+input[type="submit"]#submitButton{
+	width: 100%;
+}
+.box button:hover, input[type="submit"]:hover{
     color: white;
     background-color: var(--theme-color-transparent);
     border-color: var(--theme-color-transparent);
 }
-.box button:active{
+.box button:active, input[type="submit"]:active{
 	background-color: cyan;
 	border-color: cyan;
 }
 .box .buttonSection .previousButton{
 	width: 40%;
-}
-.box .buttonSection #submitButton{
-	width: 35%;
 }
 .box{
 	display: none;

@@ -96,6 +96,19 @@
          <div class="box">
             <h2>Step 1</h2>
             <div class="inputBox">
+               <br>
+               <input type="checkbox" id="nwork_plumber" name="natureOfWork" value="plumber">
+               <span>Plumber</span>
+               <input type="checkbox" id="nwork" name="natureOfWork" value="housekeeper">
+               <span>Housekeeper</span>
+               <br>
+               <input type="checkbox" id="nwork" name="natureOfWork" value="Barber">
+               <span>Barber</span>
+               <input type="checkbox" id="nwork" name="natureOfWork" value="electrician">
+               <span>Electrician</span>
+               <label>Nature of Work</label>
+            </div>
+            <div class="inputBox">
                <input type="text" id="fname" name="first_name" required>
                <label>First Name*</label>
             </div>
@@ -152,7 +165,7 @@
             </div>
          </div>
          <div class="box">
-            <h2>Step 3</h2>
+            <h2>Step 4</h2>
                <div class="inputBox">
                   <select class="form-select" id="language" name="language">
                      <option value="en">English</option>
@@ -174,7 +187,7 @@
             </div>
          </div>
          <div class="box">
-            <h2>Step 3</h2>
+            <h2>Step 5</h2>
                <div class="inputBox">
                   <input id="username" onchange="log()" type="text" name="username" required>
                   <label>Choose a Username*</label>
@@ -197,10 +210,9 @@
             <div id="sbmit" class="buttonSection">
                <button type="button" class="previousButton">Go Back</button>
               <div id="creat">
-               <input type="submit" onclick="store()" class="nextButton" id="submitButton">Submit</button>
+               <input type="submit" onclick="store()" class="nextButton" id="submitButton">
               </div>
             </div>
-         
          </div>
          <div class="box">
             <h2>Success <i class="fas fa-check-circle"></i></h2>

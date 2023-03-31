@@ -56,5 +56,11 @@ window.onload = function(){
 
 function logout(){
     localStorage.removeItem("login");
-    location.reload();
+    let address_bar = location.href.slice(location.href.length-10,location.href.length);
+    if(address_bar == 'index.html'){
+        location.reload();
+    }
+    else{
+        window.open('../index.html','_self');
+    }
 }
