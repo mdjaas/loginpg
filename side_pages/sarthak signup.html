@@ -97,7 +97,7 @@
             <h2>Step 1</h2>
             <div class="inputBox">
                <br>
-               <input type="checkbox" id="nwork_plumber" name="natureOfWork" value="plumber">
+               <input type="checkbox" id="nwork" name="natureOfWork" value="plumber">
                <span>Plumber</span>
                <input type="checkbox" id="nwork" name="natureOfWork" value="housekeeper">
                <span>Housekeeper</span>
@@ -286,7 +286,7 @@ function store(){
              var phone= document.getElementById("ph").value
              var altphone= document.getElementById("altph").value
              var workcity=""
-             var worktype=""
+             var worktype=document.getElementById("nwork").value
             console.log(uname);
             messagesRef.on("value", function(snapshot){
              if(snapshot.exists()){
