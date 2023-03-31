@@ -118,6 +118,18 @@ table{width:80%;
       <div id="deal" class="deals"></div>
       <div id="galry">
          <span onclick="clos()" class="close" style="cursor:pointer; font-size:35px;">&times;</span>
+         <table>
+           <tr>
+             <td colspan="2"><img id="pic1" width="500px" height="200px"></td>
+           </tr>
+           <tr>
+             <td><img id="pic2" width="100px" height="100px"></td>
+             <td><img id="pic3"  width="100px" height="100px"></td>
+             <td><img id="pic4" width="100px" height="100px"></td>
+             <td><img id="pic5" width="100px" height="100px"></td>
+           </tr>
+         </table> 
+
       </div>
       <div id="update" class="update">
          <select id="wstatus" style="font-size:25px;">
@@ -288,6 +300,7 @@ ref.on("value", function(snapshot) {
    img5=snapshot.val().image5
    status=snapshot.val().status
    x()
+   galerview()
 }, function (error) {
    console.log("Error: " + error.code);
 });
@@ -309,6 +322,13 @@ function counter(){
 for(; datacount<=countx;){
 retrieved()}}
 
+function galerview(){
+    document.getElementById("pic1").src=img1
+    document.getElementById("pic2").src=img2
+    document.getElementById("pic3").src=img3
+    document.getElementById("pic4").src=img4
+    document.getElementById("pic5").src=img5
+}
 </script>
 
 <script>
