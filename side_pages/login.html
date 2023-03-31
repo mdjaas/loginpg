@@ -173,6 +173,12 @@ div.d{position:relative;
                         <span>Sign Up</span>
                      </a>
                   </li>
+                  <li class="nav-item">
+                     <a class="nav-link d-flex align-items-center justify-content-center flex-column" role="button" onclick="logout()">
+                        <span><i class="bi bi-power"></i></span>
+                        <span>Logout</span>
+                     </a>
+                  </li>
                </ul>
             </div>
          </div>        
@@ -376,9 +382,7 @@ retrieved()}}
 function login(){
   cont=1
      if(document.getElementById("user").value==uname && document.getElementById("pwd").value==pwd){
-        if(worktype==undefined){
-           left()}
-         else{window.open('index.html','_self')}
+         window.open('../../index.html','_self');
          localStorage.removeItem("login");
          loginc=[]
          c=loginc.push([uname,fname]) 
@@ -403,6 +407,9 @@ function login(){
 }
 </script>
 
+   <!-- Custom Scripts -->
+   <!-- Login Status -->
+   <script src="../login_status.js"></script>
 </body>
 </html>
 
