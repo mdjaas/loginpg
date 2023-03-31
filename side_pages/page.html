@@ -390,10 +390,7 @@ firebase.initializeApp(firebaseConfig);
             .addEventListener('click', storeprof);
 
 
-function storeprof(){
- qa=JSON.parse(window.localStorage.getItem('login'))
- f=qa[0][1]+qa[0][0]
- var a="/profile/"+"profiles"+profilescount
+            var a="/profile/"+"profiles"+profilescount
  var messagesRef = firebase.database()
             .ref(a);
         document.getElementById('prof')
@@ -437,7 +434,7 @@ function storeprof(){
                 name:nameid,
                 count:prcount,
             });}
-        profilescount+=1}}
+       }}
 function profret(){
 countnum=0
 countx=0;
@@ -453,6 +450,7 @@ ref.on("value", function(snapshot) {
    console.log(snapshot.val().name);
    m=snapshot.val().cimage
    n=snapshot.val().primage
+   prcount=snapshot.val().count
    profilename=snapshot.val().name
    dataa.push([m,n])
    profil()
@@ -489,6 +487,7 @@ qa=JSON.parse(window.localStorage.getItem('login'))
 if(profilename==f){
    document.getElementById("profimage").src=n
    document.getElementById("coverimage").src=m
+   profilescount=prcount-1
 }}
 </script>
 
