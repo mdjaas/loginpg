@@ -1,35 +1,12 @@
 window.onload = function(){
-    let nav_items = document.querySelectorAll(".nav-item");
-    let home_nav, deals_nav, people_nav, hiring_nav, profile_nav, login_nav, signup_nav, logout_nav;
-
-    for(let i=0; i<8; i++){
-        switch(nav_items[i].innerText){
-            case 'Home':
-                home_nav = nav_items[i];
-                break;
-            case 'Deals':
-                deals_nav = nav_items[i];
-                break;
-            case 'People':
-                people_nav = nav_items[i];
-                break;
-            case 'Hiring':
-                hiring_nav = nav_items[i];
-                break;
-            case 'Profile':
-                profile_nav = nav_items[i];
-                break;
-            case 'Login':
-                login_nav = nav_items[i];
-                break;
-            case 'Sign Up':
-                signup_nav = nav_items[i];
-                break;
-            case 'Logout':
-                logout_nav = nav_items[i];
-                break;
-        }
-    }
+    let home_nav = document.querySelector("#home_nav");
+    let deals_nav = document.querySelector("#deals_nav");
+    let people_nav = document.querySelector("#people_nav");
+    let hiring_nav = document.querySelector("#hiring_nav");
+    let profile_nav = document.querySelector("#profile_nav");
+    let login_nav = document.querySelector("#login_nav");
+    let signup_nav = document.querySelector("#signup_nav");
+    let logout_nav = document.querySelector("#logout_nav");
 
     hiring_nav.style.display = "none";
     q=JSON.parse(localStorage.getItem('login')) || []; //to get the value stored under login key. I have already coded to push the login data to localstorage on login page
