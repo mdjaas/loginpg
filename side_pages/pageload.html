@@ -229,7 +229,7 @@ document.getElementById("coverimage").src=m
 </script>
 
 <script>
-
+function allpost(){
 countnum=0
 countx=0;
 const data=[];
@@ -266,7 +266,7 @@ function counter(){
 for(; postscount<=countx;){
 retrieve()}
 bioret()}
-
+}
 
 count=1
 trcount=1
@@ -360,5 +360,54 @@ function storebio(){
  }
 
 </script>
+ 
+<script>
+countnum=0
+countx=0;
+var dataa=[]
+datacount=1
+function retrieved(){
+/*f=document.getElementById("nam").innerText*/
+var ref = firebase.database().ref('/credential/credential'+datacount);
+datacount+=1
+ref.on("value", function(snapshot) {
+   console.log(snapshot.val().firstname);
+   fname=snapshot.val().firstname
+   uname=snapshot.val().username
+   workcity=snapshot.val().workcity
+   worktype=snapshot.val().worktype
+   profdetails()
+}, function (error) {
+   console.log("Error: " + error.code);
+});
+}
+
+
+/*f=document.getElementById("nam").innerText*/
+var ref = firebase.database().ref('/credential/');
+ref.on('child_added', function(snapshot) {
+   countnum++;
+  // how do I know if this is the last child? i.e. the count is complete?
+});
+
+ref.on('value', function(snapshot) {
+countx+=countnum
+counter()
+});
+function counter(){
+for(; datacount<=countx;){
+retrieved()
+allpost()}}
+
+function profdetails(){
+q=window.localStorage.getItem('viewprofile');
+if(q==fname+uname){
+document.getElementById("nam").innerText=q
+document.getElementById("wcity").innerText=workcity
+document.getElementById("job").innerText=worktype
+}
+}
+</script>
+
 </body>
 </html>
