@@ -389,8 +389,15 @@ firebase.initializeApp(firebaseConfig);
  document.getElementById('prof')
             .addEventListener('click', storeprof);
 
+            firebase.initializeApp(firebaseConfig);
+ document.getElementById('prof')
+            .addEventListener('click', storeprof);
 
-            var a="/profile/"+"profiles"+profilescount
+
+            function storeprof(){
+ qa=JSON.parse(window.localStorage.getItem('login'))
+ f=qa[0][1]+qa[0][0]
+ var a="/profile/"+"profiles"+profilescount
  var messagesRef = firebase.database()
             .ref(a);
         document.getElementById('prof')
