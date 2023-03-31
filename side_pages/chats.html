@@ -1,0 +1,364 @@
+<html>
+<head>
+<title> Chat Page</title>
+<style>
+div.searc{position:fixed;
+          top:20%;}
+div.chatlist{position:fixed;
+             top:27%;
+             border:1px solid black;
+             border-radius:3px;
+             height:70%;
+             width:22.5%;
+             display:block;
+             padding:8px;
+             max-height:70%;
+             overflow-y:scroll;
+             }
+    .chatnam{width:100%;
+             border:none;
+             background-color:white;
+             font-size:25px;
+             transition:0.2s;
+             }
+    .chatnam:hover{background-color:grey;}
+div.chatroom{position:fixed;
+             top:20%;
+             left:25%;
+             width:70%;
+             height:79%;
+             border:1px solid black;
+             border-radius:3px;
+            }
+    .send{position:fixed;
+          top:93%;
+          left:27%;
+          font-size:20px;
+          width:62.5%;
+          border-radius:8px;}
+    div.sender{position:fixed;
+               left:40%;
+               width:70%;
+               height:10%;
+               font-size:25px;}
+    div.message{position:absolute;
+                top:9%;
+                width:100%;
+                height:79%;
+                border-top:1px solid black;
+                border-bottom:1px solid black;
+                max-height:79%;
+                overflow-y:scroll;
+                }
+    .sen{position:fixed;
+         top:93.5%;
+         left:90%;}
+    div.sent{
+         position:absolute;
+         right:1%;
+         width:30%;}
+    div.recv{position:absolute;
+             left:1%;
+             width:30%;}
+</style>
+</head>
+<body onload="chathist()">
+<div class="searc">
+    <input style="font-size:25px;" type="search" placeholder="Search Chats" id="search">
+</div>
+<div id="chatlis" class="chatlist">
+    
+</div>
+
+<form id="msg">
+<div class="chatroom">
+    <div class="sender">
+        <i id="to"></i>
+    </div>
+    <div>
+        <i id="from"></i>
+    </div>
+    <div class="message">
+        <div id="mesg" class="sent">
+        </div>
+        <div id="rmsg" class="recv">
+        </div>
+    </div>
+    <input type="text" id="send" class="send" placeholder="Send Message">
+    <input type="submit" onclick="se()" class="sen">
+</div>
+</form>
+
+<script>
+
+user=JSON.parse(localStorage.getItem('login')) || []
+document.getElementById("from").innerText=user[0][1]+user[0][0]
+ct=1
+function chathist(){
+   chater=window.localStorage.getItem('hire');
+   a=document.createElement("button")
+   a.id="chat"+ct
+   a.onclick=function(){chatload();
+                        };
+   b=document.createTextNode(chater)
+   a.appendChild(b)
+   a.classList.add("chatnam")
+   document.getElementById("chatlis").appendChild(a)
+   chatter()
+   ct+=1}
+</script>
+<script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+<script>
+chatcount=1
+const firebaseConfig = {
+    apiKey: "AIzaSyA_M0oiVsFyR5XfW0inpk8F9T9Ldn8tRwk",
+    authDomain: "chatroom-5f812.firebaseapp.com",
+    databaseURL: "https://chatroom-5f812-default-rtdb.firebaseio.com",
+    projectId: "chatroom-5f812",
+    storageBucket: "chatroom-5f812.appspot.com",
+    messagingSenderId: "263481909708",
+    appId: "1:263481909708:web:bffeaf6a4dbf88aae13d69"
+  };
+  firebase.initializeApp(firebaseConfig);
+function store(){
+  f=document.getElementById("to").innerText
+  var a="/chats/"+"/chats"+chatcount
+  var messagesRef = firebase.database()
+            .ref(a);
+        document.getElementById('msg')
+            .addEventListener('submit', submitForm);
+
+        function submitForm(e) {
+            e.preventDefault();
+            // Get values
+             var from=document.getElementById("from").innerText
+             var to=document.getElementById("to").innerText
+             var msg= getInputVal('send');
+             var ccount=chatcount-1;
+            console.log(msg);
+           messagesRef.on("value", function(snapshot){
+             if(snapshot.exists()){
+           
+             }
+             else{
+            saveMessage(from, to, msg, ccount);
+            }})}
+        // Function to get form values
+        function getInputVal(id) {
+            return document.getElementById(id).value;
+        }
+        // Save message to firebase
+        function saveMessage(from,to,msg, ccount) {
+             
+             /*var newMessageRef = messagesRef.push();*/
+            messagesRef.set({
+                from:from,
+                to:to, 
+                message:msg,
+                ccount:ccount,
+            });
+        }
+chatcount+=1}
+count=1
+trcount=1
+function se(){
+   h="cht"+trcount
+   i="mesage"+count
+   a=document.createElement("table")
+   a.id="mesage"+count
+ 
+   a.style.fontSize="25px"
+   document.getElementById("mesg").appendChild(a)
+   count+=1
+   b=document.createElement("tr")
+   b.id="cht"+trcount
+   document.getElementById(i).appendChild(b)
+   trcount+=1
+   c=document.createElement("td")
+   c.style.border="1px solid black"
+   c.style.borderRadius="8px"
+   d=document.createTextNode(document.getElementById("send").value)
+   c.appendChild(d)
+   document.getElementById(h).appendChild(c)
+   trcount+=1
+
+   store()}
+
+</script>
+
+
+<script>
+function chatload(){
+toname=window.localStorage.getItem('hire');
+document.getElementById("to").innerText=toname
+countnum=0
+countx=0;
+countad=1
+const data=[]
+chcount=0
+function retrieve(){
+f=document.getElementById("to").innerText
+var ref = firebase.database().ref('/chats/'+'/chats'+chcount);
+chcount+=1
+ref.on("value", function(snapshot) {
+   console.log(snapshot.val().message);
+   g=snapshot.val().message
+   k=snapshot.val().from
+   r=snapshot.val().to
+   rcv()
+
+}, function (error) {
+   console.log("Error: " + error.code);
+});
+}
+
+
+f=document.getElementById("to").innerText
+var ref = firebase.database().ref('/chats/');
+ref.on('child_added', function(snapshot) {
+   countnum++;
+  // how do I know if this is the last child? i.e. the count is complete?
+});
+
+ref.on('value', function(snapshot) {
+countx+=countnum
+chatcount=countnum
+counter()
+});
+function counter(){
+for(; chcount<=countx;){
+retrieve()}}
+}
+
+function chatter(){
+
+
+
+countnum=0
+countx=0;
+countad=1
+const data=[]
+chcount=0
+function retrieve(){
+f=document.getElementById("to").innerText
+var ref = firebase.database().ref('/chats/'+'/chats'+chcount);
+chcount+=1
+ref.on("value", function(snapshot) {
+   console.log(snapshot.val().message);
+   g=snapshot.val().message
+   k=snapshot.val().from
+   
+   r=snapshot.val().to
+   rcv()
+   chatting()
+
+}, function (error) {
+   console.log("Error: " + error.code);
+});
+
+}
+
+
+f=document.getElementById("to").innerText
+var ref = firebase.database().ref('/chats/');
+ref.on('child_added', function(snapshot) {
+   countnum++;
+  // how do I know if this is the last child? i.e. the count is complete?
+});
+
+ref.on('value', function(snapshot) {
+countx+=countnum
+chatcount=countnum
+counter()
+});
+function counter(){
+for(; chcount<=countx;){
+retrieve()}}
+
+}
+
+function chatres(){
+
+countnum=0
+countx=0;
+countad=1
+const data=[]
+chcount=0
+function retrieve(){
+f=document.getElementById("to").innerText
+var ref = firebase.database().ref('/chats/'+'/chats'+chcount);
+chcount+=1
+ref.on("value", function(snapshot) {
+   console.log(snapshot.val().message);
+   g=snapshot.val().message
+   k=snapshot.val().from
+   
+   r=snapshot.val().to
+   document.getElementById("to").innerText=r
+  
+    
+}, function (error) {
+   console.log("Error: " + error.code);
+});
+
+}
+
+
+f=document.getElementById("to").innerText
+var ref = firebase.database().ref('/chats/');
+ref.on('child_added', function(snapshot) {
+   countnum++;
+  // how do I know if this is the last child? i.e. the count is complete?
+});
+
+ref.on('value', function(snapshot) {
+countx+=countnum
+chatcount=countnum
+counter()
+});
+function counter(){
+for(; chcount<=countx;){
+retrieve()}}
+
+}
+
+cacount=0
+function chatting(){
+  
+   
+   if(r==document.getElementById("from").innerText && cacount<=1){ 
+   a=document.createElement("button")
+   a.onclick=function(){chatres()};
+   b=document.createTextNode(k)
+   a.appendChild(b)
+   a.classList.add("chatnam")
+   document.getElementById("chatlis").appendChild(a)}
+   cacount+=1
+}
+function rcv(){
+   h="cht"+trcount
+   i="mesage"+count
+   if(k==document.getElementById("to").innerText){
+   a=document.createElement("table")
+   a.id="mesage"+count
+   a.style.fontSize="25px"
+   document.getElementById("rmsg").appendChild(a)
+   count+=1
+   b=document.createElement("tr")
+   b.id="cht"+trcount
+   document.getElementById(i).appendChild(b)
+   trcount+=1
+   c=document.createElement("td")
+   c.style.border="1px solid black"
+   c.style.borderRadius="8px"
+   d=document.createTextNode(g)
+   c.appendChild(d)
+   document.getElementById(h).appendChild(c)
+   trcount+=1}
+    
+  count+=1
+ }
+</script>
+</body>
+</html>

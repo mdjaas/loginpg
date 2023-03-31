@@ -545,6 +545,8 @@ function prof(){
   ar.style.padding="5px"
   ar.style.borderRadius="15px"
   as=document.createTextNode("Chat")
+  as.onclick=function() { window.localStorage.setItem('hire', ma.innerText);
+                            window.open("chat.html","_self") };
   ar.appendChild(as)
   am.appendChild(ar)
   al.appendChild(am)
