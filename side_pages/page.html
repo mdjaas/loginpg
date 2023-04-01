@@ -388,10 +388,16 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
  document.getElementById('prof')
             .addEventListener('click', storeprof);
-function storeprof(){
+
+            firebase.initializeApp(firebaseConfig);
+ document.getElementById('prof')
+            .addEventListener('click', storeprof);
+
+
+            function storeprof(){
  qa=JSON.parse(window.localStorage.getItem('login'))
  f=qa[0][1]+qa[0][0]
- var a="/profile/"+f
+ var a="/profile/"+"profiles"+profilescount
  var messagesRef = firebase.database()
             .ref(a);
         document.getElementById('prof')
@@ -402,34 +408,40 @@ function storeprof(){
            if(document.getElementById("coverph").value==""){
              var primg=document.getElementById("profileph").files[0].name;
              var nameid= document.getElementById("nam").innerText;
+             var prcount=profilescount;
+            
             console.log(nameid);
-            saveMessage(cimg,primg,nameid);}
+ 
+            saveMessage(cimg,primg,nameid,prcount);}
             
            else if(document.getElementById("profileph").value==""){
              var cimg=document.getElementById("coverph").files[0].name;
              var nameid= document.getElementById("nam").innerText;
-             saveMessage(cimg,primg,nameid);}   
+             var prcount=profilescount;
+ 
+             saveMessage(cimg,primg,nameid,prcount);}   
            }            
         // Function to get form values
         function getInputVal(id) {
             return document.getElementById(id).value;
         }
         // Save message to firebase
-        function saveMessage(cimg, primg, nameid) {
+        function saveMessage(cimg, primg, nameid, prcount) {
              
              /*var newMessageRef = messagesRef.push();*/
           if(document.getElementById("coverph").value==""){
-            messagesRef.update({
+            messagesRef.set({
                 primage:primg, 
                 name:nameid,
+                count:prcount,
             });}
           else if(document.getElementById("profileph").value==""){
             messagesRef.update({
                 cimage:cimg, 
                 name:nameid,
+                count:prcount,
             });}
-        }}
-
+       }
 function profret(){
 countnum=0
 countx=0;
@@ -439,13 +451,14 @@ function retrieved(){
 qa=JSON.parse(window.localStorage.getItem('login'))
 f=qa[0][1]+qa[0][0]
 
-var ref = firebase.database().ref('/profile/'+f);
+var ref = firebase.database().ref('/profile/'+'profiles'+datacount);
 datacount+=1
 ref.on("value", function(snapshot) {
    console.log(snapshot.val().name);
    m=snapshot.val().cimage
    n=snapshot.val().primage
-   o=snapshot.val().name
+   prcount=snapshot.val().count
+   profilename=snapshot.val().name
    dataa.push([m,n])
    profil()
 }, function (error) {
@@ -465,6 +478,8 @@ ref.on('child_added', function(snapshot) {
 
 ref.on('value', function(snapshot) {
 countx+=countnum
+profilescount=countnum
+
 counter()
 });
 function counter(){
@@ -473,9 +488,14 @@ retrieved()}}
 }
 
 function profil(){
-document.getElementById("profimage").src=n
-document.getElementById("coverimage").src=m
-}
+qa=JSON.parse(window.localStorage.getItem('login'))
+ f=qa[0][1]+qa[0][0]
+
+if(profilename==f){
+   document.getElementById("profimage").src=n
+   document.getElementById("coverimage").src=m
+   profilescount=prcount-1
+}}
 </script>
 
 <script>

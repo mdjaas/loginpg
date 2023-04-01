@@ -93,7 +93,7 @@ div.z{position:absolute;
              background-color:white;}
 div.profile{position:absolute;
             left:28%;
-            top:30%;
+            top:60%;
             width:40%;
            }
     div.pr{position:absolute;
@@ -547,18 +547,20 @@ firebase.initializeApp(firebaseConfig);
 countnum=0
 countx=0;
 var dataa=[]
-datacount=1
+datacount=0
 function retrieved(){
 qa=JSON.parse(window.localStorage.getItem('login'))
- f=qa[0][1]+qa[0][0]
 
-var ref = firebase.database().ref('/profile/'+f);
+
+var ref = firebase.database().ref('/profile/'+"profiles"+datacount);
 datacount+=1
 ref.on("value", function(snapshot) {
+  
    console.log(snapshot.val().name);
    cimag=snapshot.val().cimage
    primag=snapshot.val().primage
    name=snapshot.val().name
+   
    prof()
 }, function (error) {
    console.log("Error: " + error.code);
@@ -567,7 +569,7 @@ ref.on("value", function(snapshot) {
 
 
 /*f=document.getElementById("nam").innerText*/
-var ref = firebase.database().ref('/profile/');
+var ref = firebase.database().ref('/profile');
 ref.on('child_added', function(snapshot) {
    countnum++;
   // how do I know if this is the last child? i.e. the count is complete?
@@ -580,6 +582,9 @@ counter()
 function counter(){
 for(; datacount<=countx;){
 retrieved()}}
+
+
+
 
 
 </script>
